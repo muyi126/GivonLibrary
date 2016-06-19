@@ -59,3 +59,9 @@ proguard/
 gradle.properties
 signing.properties
 release.properties
+app/libs/
+app/src/main/res/drawable/
+librarymaster/libs/
+librarymaster/src/main/java/com/base/givon/librarymaster/common/adapter/
+librarymaster/src/main/java/com/base/givon/librarymaster/common/base/
+librarymaster/src/main/res/drawable/
