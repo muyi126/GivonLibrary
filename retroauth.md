@@ -5,13 +5,13 @@
 * appcompat-v7 23.4.0
 
 ## What does it do?
-如果你调用一个请求方法, annotated with the authenticated annotation（带有经过authenticated的注解的注释）, 它会做一下步骤:
-* Step 1: 检查如果他们在Android AccountManager已经有一个账户Checks if there already is an account in the Android AccountManager. If not如果没有, it'll open a LoginActivity (you choose which)它会打开一个LoginActivity（你选择的）. If there already is an account如果已经有一个账户, go on with step 2, If there's more than one account open an Dialog to pick an account如果不止一个账户将打开一个Dialog选择一个账户.
-* Step 2: Tries to get the authentication token from the (choosen) account for authorizing the request试着从选择的认证账户去获取authentication token. If there is no valid token如果没有有效的token（ex：token过期）, your LoginActivity will open 就会打开LoginActivity. After login go to Step 1 登录后跳到 Step 1.
-* Step 3: Sends the actual request 发送实际的请求
-* Step 4: By implementing a Provider you can check the response (i.e. a 401 you will be able to refresh the token) and decide if you want to retry the request or not.通过一个Provider你可以检查返回的结果（401 你可以刷新Token不可用）并且你可以重新请求
+如果你调用一个请求方法, annotated with the authenticated annotation（带有经过authenticated的注解的注释）, 它会做以下步骤:
+* Step 1: 检查如果他们在Android AccountManager已经有一个账户. 如果没有,它会打开一个LoginActivity（你选择的Activity）. 如果已经有一个账户, go on with step 2,如果不止一个账户将打开一个Dialog选择一个账户.
+* Step 2: 试着从选择的认证账户去获取authentication token. 如果没有有效的token（ex：token过期）, 就会打开LoginActivity.  登录后跳到 Step 1.
+* Step 3: 发送实际的请求
+* Step 4: 通过一个Provider你可以检查返回的结果（401 你可以刷新Token不可用）并且你可以重新请求
 
-### 1. You need to deal with at least 3 different strings你需要处理至少3个不同的String
+### 1. 你需要处理至少3个不同的String
 1. An action string which will be used to start your Login action string这将用于你启动Login 
  * (recommended: use your applicationId for example and add: ".ACTION")推荐：用你的applicationId加上 .Action。
 2. An Account-Type string. This should be a unique string! 一个Account-Type。这应该是一个独一无二的String
@@ -20,7 +20,7 @@
  * (recommended: use your applicationId for example and add: ".TOKEN")推荐：用你的applicationId加上 .TOKEN。
 4. (Optional) Create as many Token-Type Strings as you need.（可选）根据你的需要创建多个Token-Type String
  
-### 2. Create an Activity (or use one you already have) where the user can login. This Activity must extend from AuthenticationActivity and call finalizeAuthentication when the authentication finished 创建一个Activity（或者已有的Activity）能让用户登录。这个Activity必须继承AuthenticationActivity和在验证完成时调用finalizeAuthentication
+### 2. 创建一个Activity（或者已有的Activity）能让用户登录。这个Activity必须继承AuthenticationActivity和在验证完成时调用finalizeAuthentication
  i.e. (see Demo for an example)
  
 ```java
@@ -65,8 +65,8 @@ private void someLoginMethod() {
  ...
  </manifest>
  ```
-### 3. Setup an AuthenticationService（设置一个AuthenticationService）
-There are two ways of doing that:（有两个方法这样做）
+### 3. 设置一个AuthenticationService
+有两个方法这样做:
  
 * Option 1:
 Extend the AuthenticationService and provide the ACTION-string.继承AuthenticationService并且提供Action-string
