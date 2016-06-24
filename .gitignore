@@ -56,6 +56,10 @@ proguard/
 # System files
 .DS_Store
 
+#app
+appPhp
+umeng_social_sdk_res_lib
+
 gradle.properties
 signing.properties
 release.properties

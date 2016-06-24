@@ -15,3 +15,8 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-keepattributes InnerClasses
+-dontoptimize
+-keepclassmembers class * { @com.levelmoney.velodrome.annotations.OnActivityResult *; }
+##prettytime
+-keep class org.ocpsoft.prettytime.i18n.**

@@ -10,6 +10,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/appPhp" />
+            <option value="$PROJECT_DIR$/librarymaster" />
+            <option value="$PROJECT_DIR$/umeng_social_sdk_res_lib" />
           </set>
         </option>
       </GradleProjectSettings>

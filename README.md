@@ -12,6 +12,7 @@
 
 ##  项目依赖
 1. [android.support.*](https://developer.android.com/tools/support-library/index.html) Android Support Library
+2. [butterknife](https://github.com/JakeWharton/butterknife) View注入框架
 
 ##  项目结构
 
