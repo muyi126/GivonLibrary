@@ -1,12 +1,16 @@
 package com.base.givon.givonlibrary.common.internal.di.component;
 
+import com.base.givon.givonlibrary.common.App;
 import com.base.givon.givonlibrary.common.Navigator;
 import com.base.givon.givonlibrary.common.internal.di.module.AppModule;
+import com.base.givon.givonlibrary.common.net.RetrofitUtils;
+import com.base.givon.givonlibrary.ui.view.RepositoriesFragment;
 
 
 import javax.inject.Singleton;
 
 import dagger.Component;
+import retrofit2.Retrofit;
 
 /**
  *
@@ -20,7 +24,10 @@ import dagger.Component;
  * @email:muyi126@163.com
  */
 @Singleton
-@Component(modules = AppModule.class)
+@Component(modules = {AppModule.class,RetrofitUtils.class})
 public interface AppComponent {
     Navigator navigator();
+    void inject(Retrofit retrofit);
+    void inject(RepositoriesFragment repositoriesFragment);
+    void inject(App app);
 }

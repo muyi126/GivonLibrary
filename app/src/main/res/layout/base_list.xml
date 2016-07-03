@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:paddingLeft="6dp"
             android:paddingRight="6dp"
-            tools:listitem="@layout/topic_item"/>
+            tools:listitem="@layout/repos_item"/>
     </com.cjj.MaterialRefreshLayout>
 
 </com.kennyc.view.MultiStateView>

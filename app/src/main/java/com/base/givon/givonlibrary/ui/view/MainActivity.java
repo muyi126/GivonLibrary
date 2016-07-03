@@ -50,8 +50,8 @@ public class MainActivity extends BaseActivity {
         final LayoutInflater layoutInflater = LayoutInflater.from(this);
         final int[] tabIcons = {R.drawable.ic_recommended, R.drawable.ic_topics, R.drawable.ic_wiki, R.drawable.ic_me};
         FragmentPagerItems pages = FragmentPagerItems.with(this)
-                .add("Recommend", RecommendedFragment.class)
-                .add("Tipoc", RecommendedFragment.class)
+                .add("Recommend", RepositoriesFragment.class)
+                .add("Tipoc", RepositoriesFragment.class)
                 .create();
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(),

@@ -3,6 +3,7 @@ package com.base.givon.givonlibrary.common.internal.di.module;
 import com.base.givon.givonlibrary.common.App;
 import com.base.givon.givonlibrary.common.internal.di.qualifier.ForApplication;
 import com.github.pwittchen.prefser.library.Prefser;
+import com.lzy.okhttputils.OkHttpUtils;
 
 import android.accounts.AccountManager;
 import android.content.Context;
@@ -49,6 +50,7 @@ public class AppModule {
     AccountManager provideAccountManager(@ForApplication Context context) {
         return AccountManager.get(context);
     }
+
 
 //    @Provides
 //    @Singleton

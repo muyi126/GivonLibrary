@@ -1,9 +1,17 @@
 
-include ':app', ':umeng_social_sdk_res_lib', ':appPhp'
+include ':app'
+include ':umeng_social_sdk_res_lib'
+include ':appPhp'
+//include ':retroauth-android'
+//include ':retroauth-core'
 include ':librarymaster'
 //include ':umeng'
 //project(':umeng').projectDir = new File(settingsDir, '../GitHubObj/phphub-android-master/umeng_social_sdk_res_lib')
 //include ':Nucleus'
 //project(':Nucleus').projectDir = new File(settingsDir, '../GitHubObj/Nucleus')
-//include ':PhpApp'
-//project(':PhpApp').projectDir = new File(settingsDir, '../GitHubObj/phphub-android-master/app')
+//include ':retroauth'
+//project(':retroauth').projectDir = new File(settingsDir, '../GitHubObj/retroauth')
+include 'okhttputils'
+project(':okhttputils').projectDir = new File(settingsDir, '../GitHubObj/OkHttpUtils/okhttputils')
+include 'okhttpserver'
+project(':okhttpserver').projectDir = new File(settingsDir, '../GitHubObj/OkHttpUtils/okhttpserver')

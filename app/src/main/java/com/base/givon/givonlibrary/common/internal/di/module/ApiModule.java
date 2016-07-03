@@ -1,11 +1,10 @@
 package com.base.givon.givonlibrary.common.internal.di.module;
 
 import com.base.givon.givonlibrary.common.internal.di.qualifier.ForApplication;
-import com.github.pwittchen.prefser.library.Prefser;
+import com.base.givon.givonlibrary.module.GitHubModel;
 
 import android.content.Context;
 
-import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -16,12 +15,13 @@ import static com.base.givon.givonlibrary.common.qualifier.AuthType.AUTH_TYPE_US
 
 @Module(includes = AppModule.class)
 public class ApiModule {
-//    @Provides
-//    @Singleton
-//    @Named(AUTH_TYPE_USER)
-//    TopicModel provideTopicModelByAuth(@ForApplication Context context) {
-//        return new TopicModel(context, null);
-//    }
+    @Provides
+    @Singleton
+    GitHubModel provideTopicModelByAuth(@ForApplication Context context) {
+        return new GitHubModel(context);
+    }
+
+
 //
 //
 //    @Provides
