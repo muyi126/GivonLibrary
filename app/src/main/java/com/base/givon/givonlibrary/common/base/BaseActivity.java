@@ -58,9 +58,6 @@ public abstract class BaseActivity<PresenterType extends Presenter> extends Nucl
     @Inject
     AccountManager accountManager;
 
-    String accountType, tokenType;
-
-    Account[] accounts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

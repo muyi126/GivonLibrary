@@ -157,6 +157,9 @@ public class PassWordEditText extends RelativeLayout implements Switch.OnChecked
             mPsdEditText.setFocusableInTouchMode(true);
             mPsdEditText.requestFocus();
             mPsdEditText.requestFocusFromTouch();
+            if(getText().length() > 0){
+                mPsdEditText.setSelection(getText().length());
+            }
         }
     }
 }

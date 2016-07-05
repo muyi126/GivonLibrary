@@ -1,7 +1,6 @@
 package com.base.givon.givonlibrary.common.base;
 
 
-
 import com.base.givon.givonlibrary.common.qualifier.ClickType;
 
 import android.content.Context;
@@ -10,7 +9,6 @@ import android.view.View;
 
 import butterknife.ButterKnife;
 import io.nlopez.smartadapters.views.BindableFrameLayout;
-import io.nlopez.smartadapters.views.BindableLayout;
 
 public abstract class BaseAdapterItemView<T> extends BindableFrameLayout<T> {
     public BaseAdapterItemView(Context context) {

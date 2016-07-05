@@ -3,14 +3,11 @@ package com.base.givon.givonlibrary.module;
 import com.base.givon.givonlibrary.api.GitHubApi;
 import com.base.givon.givonlibrary.api.entity.RepositoriesEntity;
 import com.base.givon.givonlibrary.common.base.BaseModel;
-import com.base.givon.givonlibrary.common.provider.TokenProvider;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import rx.Observable;
-import rx.Observer;
 
 /**
  *

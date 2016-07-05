@@ -47,7 +47,7 @@ public class App extends Application {
 
     }
 
-    public static Application getInstance(){
+    public static App getInstance(){
         return mApp;
     }
 
@@ -76,4 +76,9 @@ public class App extends Application {
     public Retrofit getRetrofit() {
         return mRetrofit;
     }
+
+    public Prefser getPrefser() {
+        return mPrefser;
+    }
+
 }

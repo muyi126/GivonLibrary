@@ -1,17 +1,17 @@
 package com.base.givon.givonlibrary.common.provider;
 
-import com.squareup.otto.Bus;
-import com.squareup.otto.ThreadEnforcer;
+import com.hwangjr.rxbus.Bus;
+import com.hwangjr.rxbus.thread.ThreadEnforcer;
 
-public final class BusProvider {
 
-    private static final Bus BUS = new Bus(ThreadEnforcer.MAIN);
+public class BusProvider {
+
+    private static final Bus BUS = new Bus();
+
+    private BusProvider() {
+    }
 
     public static Bus getInstance() {
         return BUS;
-    }
-
-    private BusProvider() {
-
     }
 }

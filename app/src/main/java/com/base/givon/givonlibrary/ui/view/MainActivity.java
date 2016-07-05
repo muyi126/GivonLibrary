@@ -3,10 +3,18 @@ package com.base.givon.givonlibrary.ui.view;
 
 import com.base.givon.givonlibrary.R;
 import com.base.givon.givonlibrary.common.base.BaseActivity;
+import com.base.givon.givonlibrary.common.provider.BusProvider;
+import com.base.givon.givonlibrary.common.utils.ToastUtils;
+import com.base.givon.givonlibrary.module.EventObj.EventLoginResult;
+import com.base.givon.givonlibrary.module.EventObj.EventType;
+import com.hwangjr.rxbus.annotation.Subscribe;
+import com.hwangjr.rxbus.annotation.Tag;
+import com.hwangjr.rxbus.thread.EventThread;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItem;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
+import com.orhanobut.logger.Logger;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -20,6 +28,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import butterknife.Bind;
+
+import static com.base.givon.givonlibrary.module.EventObj.EventLoginResult.USER_LOGIN_EVENT_TAG;
 
 /**
  * Copyright 2016 Givon All rights reserved.
@@ -70,9 +80,20 @@ public class MainActivity extends BaseActivity {
             }
         });
         mSmartTabLayout.setViewPager(mViewPager);
+        BusProvider.getInstance().register(this);
 
     }
 
+    @Subscribe(thread = EventThread.MAIN_THREAD,tags = {@Tag(USER_LOGIN_EVENT_TAG)})
+    public void onLoginResult(EventLoginResult rst){
+//        ToastUtils.showMessage(rst);
+        Logger.e("msg","dasdasdaaaaa");
+    }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        BusProvider.getInstance().unregister(this);
+    }
 }
