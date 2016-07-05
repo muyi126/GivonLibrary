@@ -63,8 +63,8 @@ umeng_social_sdk_res_lib
 gradle.properties
 signing.properties
 release.properties
-app/libs/
-app/src/main/res/drawable/
+#app/libs/
+#app/src/main/res/drawable/
 librarymaster/libs/
 librarymaster/src/main/java/com/base/givon/librarymaster/common/adapter/
 librarymaster/src/main/java/com/base/givon/librarymaster/common/base/
