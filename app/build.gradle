@@ -248,8 +248,10 @@ dependencies {
     //retroauth登录账户
     //    compile 'com.andretietz.retroauth:2.0.0@aar'
     //   compile 'com.github.andretietz:retroauth:2.0.0'
-
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.rey5137:material:1.2.1.6-SNAPSHOT'
 
     compile project(':okhttputils')
 
+//    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha1'
 }

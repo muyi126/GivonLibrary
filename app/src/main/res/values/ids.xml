@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="psd_checkBox">false</item>
+    <item type="id" name="giv_id_editText">false</item>
+    <item type="id" name="recyclerview_swipe">"recyclerview_swipe"</item>
+</resources>

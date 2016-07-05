@@ -15,5 +15,26 @@
 2. [butterknife](https://github.com/JakeWharton/butterknife) View注入框架
 
 ##  项目结构
+### /api
+	Api接口方法定义
+### /api/entity
+	Api接口返回数据模型
+### /api/entity/element
+	Api返回数据模型的单元模型
+### /common
+	App,Constant,Navigator
+### /common/adapter
+	适配器
+### /common/base
+	Activity基类，Adapter基类，Model基类，Presenter基类，Fragment基类
+### /common/internal/di/component
+### /common/internal/di/module
+### /common/internal/di/qualifier
+### /common/internal/di/scope
+### /common/net
+### /common/provider
+### /common/qualifier
+### /common/transformer
+
 
 

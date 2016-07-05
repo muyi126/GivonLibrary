@@ -42,11 +42,13 @@ public class App extends Application {
         mApp = this;
         Fresco.initialize(this);
         LeakCanary.install(this);
-
         initializeInjector();
         initializeInjectorApi();
 
+    }
 
+    public static Application getInstance(){
+        return mApp;
     }
 
     private void initializeInjector() {
