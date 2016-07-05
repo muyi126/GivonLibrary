@@ -6,6 +6,7 @@ import com.base.givon.givonlibrary.common.Navigator;
 import com.base.givon.givonlibrary.common.internal.di.component.ApiComponent;
 import com.base.givon.givonlibrary.common.internal.di.component.AppComponent;
 import com.base.givon.givonlibrary.common.internal.di.module.ActivityModule;
+import com.base.givon.givonlibrary.common.utils.ExitUtil;
 import com.github.pwittchen.prefser.library.Prefser;
 import com.levelmoney.velodrome.Velodrome;
 
@@ -64,7 +65,7 @@ public abstract class BaseActivity<PresenterType extends Presenter> extends Nucl
         injectorPresenter();
         super.onCreate(savedInstanceState);
         Icepick.restoreInstanceState(this, savedInstanceState);
-
+        ExitUtil.getInstance().addInstance(this);
         if(getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_PORTRAIT){
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
@@ -173,4 +174,10 @@ public abstract class BaseActivity<PresenterType extends Presenter> extends Nucl
 
     abstract protected @LayoutRes
     int getLayoutResId();
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ExitUtil.getInstance().finishActivity();
+    }
 }
