@@ -7,6 +7,7 @@ import com.base.givon.givonlibrary.common.utils.UiUtil;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -148,4 +149,14 @@ public class PassWordEditText extends RelativeLayout implements Switch.OnChecked
     }
 
 
+    @Override
+    protected void onFocusChanged(boolean gainFocus, int direction, Rect previouslyFocusedRect) {
+        super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
+        if(gainFocus){
+            mPsdEditText.setFocusable(true);
+            mPsdEditText.setFocusableInTouchMode(true);
+            mPsdEditText.requestFocus();
+            mPsdEditText.requestFocusFromTouch();
+        }
+    }
 }

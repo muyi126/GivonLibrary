@@ -2,6 +2,7 @@ package com.base.givon.givonlibrary.ui.view;
 
 import com.base.givon.givonlibrary.R;
 import com.base.givon.givonlibrary.api.entity.element.Repositories;
+import com.base.givon.givonlibrary.common.Navigator;
 import com.base.givon.givonlibrary.common.adapter.RepositoriesItemView;
 import com.base.givon.givonlibrary.common.base.LazyFragment;
 import com.base.givon.givonlibrary.ui.presenter.RepositoriesPresenter;
@@ -86,7 +87,13 @@ public class RepositoriesFragment extends LazyFragment<RepositoriesPresenter> im
             toolbarView.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem item) {
-//                    navigator.navigateToPublishTopic(getContext());
+                    switch (item.getItemId()){
+                        case R.id.action_publish:
+                            navigator.navigateToActLogin(getContext());
+                            break;
+
+                    }
+
                     return true;
                 }
             });

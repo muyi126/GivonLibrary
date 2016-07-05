@@ -1,7 +1,11 @@
 package com.base.givon.givonlibrary.ui.view;
 
+import com.base.givon.givonlibrary.R;
 import com.base.givon.givonlibrary.common.base.BaseActivity;
 import com.base.givon.givonlibrary.ui.presenter.ActLoginPresenter;
+
+import android.content.Context;
+import android.content.Intent;
 
 import nucleus.factory.RequiresPresenter;
 
@@ -20,6 +24,10 @@ import nucleus.factory.RequiresPresenter;
 public class ActLoginActivity extends BaseActivity<ActLoginPresenter>{
     @Override
     protected int getLayoutResId() {
-        return 0;
+        return R.layout.login_layout;
+    }
+
+    public  static Intent getCallingIntent(Context context){
+        return new Intent(context,ActLoginActivity.class);
     }
 }

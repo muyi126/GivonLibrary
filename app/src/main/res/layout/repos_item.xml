@@ -50,7 +50,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                style="@style/list_topic_des"
+                android:textSize="15sp"
+                android:textColor="#A7A7A7"
                 tools:text="安全 • 最后由 fvzone • 4天"/>
 
         </LinearLayout>

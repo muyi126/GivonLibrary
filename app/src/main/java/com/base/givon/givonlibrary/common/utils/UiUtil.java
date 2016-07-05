@@ -3,6 +3,7 @@ package com.base.givon.givonlibrary.common.utils;
 
 import com.base.givon.givonlibrary.R;
 import com.base.givon.givonlibrary.common.App;
+import com.orhanobut.logger.Logger;
 
 import java.io.File;
 import java.util.List;
@@ -64,7 +65,7 @@ public class UiUtil {
             dial.setData(Uri.parse("tel:" + phoneNumber));
             context.startActivity(dial);
         } catch (Exception ex) {
-            LogUtil.e(TAG, "Error starting phone dialer intent.", ex);
+            Logger.e(TAG, "Error starting phone dialer intent.", ex);
             AlertUtil.showToast(context, "对不起,我们找不到任何应用程序来打电话!");
         }
     }
@@ -100,7 +101,7 @@ public class UiUtil {
             intent.setType("vnd.android-dir/mms-sms");
             context.startActivity(intent);
         } catch (Exception ex) {
-            LogUtil.e(TAG, "Error starting sms intent.", ex);
+            Logger.e(TAG, "Error starting sms intent.", ex);
             AlertUtil.showToast(context, "对不起,我们找不到任何应用程序发送短信!");
         }
     }
@@ -120,7 +121,7 @@ public class UiUtil {
                     new String[] { emailAddress });
             context.startActivity(intent);
         } catch (Exception ex) {
-            LogUtil.e(TAG, "Error starting email intent.", ex);
+            Logger.e(TAG, "Error starting email intent.", ex);
             AlertUtil.showToast(context, "对不起,我们找不到任何应用程序来发送电子邮件!");
         }
     }
@@ -136,7 +137,7 @@ public class UiUtil {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             context.startActivity(intent);
         } catch (Exception ex) {
-            LogUtil.e(TAG, "Error starting url intent.", ex);
+            Logger.e(TAG, "Error starting url intent.", ex);
             AlertUtil.showToast(context, "对不起,我们找不到任何应用程序用于查看该url !");
         }
     }
@@ -242,7 +243,7 @@ public class UiUtil {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         } catch (Exception ex) {
-            LogUtil.e(TAG, "Error starting ShareIntent", ex);
+            Logger.e(TAG, "Error starting ShareIntent", ex);
             AlertUtil.showToast(context, "对不起,我们找不到分享程序!");
         }
     }

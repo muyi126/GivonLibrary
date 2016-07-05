@@ -2,20 +2,21 @@ package com.base.givon.givonlibrary.common.utils;
 
 
 
+import com.base.givon.givonlibrary.R;
+import com.base.givon.givonlibrary.common.App;
+
 import android.content.Context;
 import android.widget.Toast;
 
 
-import com.givon.lib.MainApplication;
-import com.givon.lib.R;
 
 
 public class ToastUtils {
-	private static Context mContext = MainApplication.getInstance();
+	private static Context mContext = App.getInstance();
 
 	public static void showMessage(Context cont, int msg) {
 		Toast toast = Toast.makeText(mContext, msg, Toast.LENGTH_SHORT);
-		toast.getView().setBackgroundResource(R.drawable.base_tip_bg);
+		toast.getView().setBackgroundResource(R.mipmap.base_tip_bg);
 		toast.getView().setPadding(50, 20, 50, 20);
 		toast.show();
 	}
@@ -25,7 +26,7 @@ public class ToastUtils {
 			return;
 		}
 		Toast toast = Toast.makeText(mContext, text, Toast.LENGTH_SHORT);
-		toast.getView().setBackgroundResource(R.drawable.base_tip_bg);
+		toast.getView().setBackgroundResource(R.mipmap.base_tip_bg);
 		toast.getView().setPadding(50, 20, 50, 20);
 		toast.show();
 	}
@@ -34,7 +35,7 @@ public class ToastUtils {
 			return;
 		}
 		Toast toast = Toast.makeText(mContext, text, type);
-		toast.getView().setBackgroundResource(R.drawable.base_tip_bg);
+		toast.getView().setBackgroundResource(R.mipmap.base_tip_bg);
 		toast.getView().setPadding(50, 20, 50, 20);
 		toast.show();
 	}
@@ -45,7 +46,7 @@ public class ToastUtils {
 		}
 		Toast toast = Toast.makeText(mContext, mContext.getResources().getString(resid),
 				Toast.LENGTH_SHORT);
-		toast.getView().setBackgroundResource(R.drawable.base_tip_bg);
+		toast.getView().setBackgroundResource(R.mipmap.base_tip_bg);
 		toast.getView().setPadding(50, 20, 50, 20);
 		toast.show();
 	}
