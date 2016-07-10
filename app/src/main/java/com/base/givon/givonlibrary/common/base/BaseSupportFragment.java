@@ -5,6 +5,7 @@ import com.base.givon.givonlibrary.common.App;
 import com.base.givon.givonlibrary.common.Navigator;
 import com.base.givon.givonlibrary.common.internal.di.component.ApiComponent;
 import com.base.givon.givonlibrary.common.internal.di.component.AppComponent;
+import com.base.givon.givonlibrary.common.widget.WaitingDialog;
 
 
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public abstract class BaseSupportFragment<PresenterType extends Presenter> exten
     public TextView toolbarTitleView;
 
     public Navigator navigator;
+    private WaitingDialog mWaitingDialog;
 
     @Override
     public void onSaveInstanceState(Bundle bundle) {
@@ -51,8 +53,28 @@ public abstract class BaseSupportFragment<PresenterType extends Presenter> exten
         Icepick.restoreInstanceState(this, savedInstanceState);
         ButterKnife.bind(this, view);
 
-        if (toolbarTitleView != null &&!TextUtils.isEmpty(getTitle())) {
+        if (toolbarTitleView != null && !TextUtils.isEmpty(getTitle())) {
             toolbarTitleView.setText(getTitle());
+        }
+    }
+
+    public void showWaitingDialog(String msg) {
+        if (mWaitingDialog == null) {
+            mWaitingDialog = new WaitingDialog(getActivity());
+            // mWaitingDialog = new ProgressDialog(this);
+            mWaitingDialog.setCanceledOnTouchOutside(false);
+            // mWaitingDialog.setMessage(getString(R.string.action_waiting));
+            mWaitingDialog.setCancelable(true);
+        }
+        mWaitingDialog.setMessage(msg);
+        if (null != getActivity() && !getActivity().isFinishing() && !mWaitingDialog.isShowing()) {
+            mWaitingDialog.show();
+        }
+    }
+
+    public void dismissWaitingDialog() {
+        if (null != mWaitingDialog && mWaitingDialog.isShowing() && null != getActivity() && !getActivity().isFinishing()) {
+            mWaitingDialog.dismiss();
         }
     }
 
@@ -68,11 +90,13 @@ public abstract class BaseSupportFragment<PresenterType extends Presenter> exten
         return ((App) getActivity().getApplication()).getApiComponent();
     }
 
-    protected void injectorPresenter() {}
+    protected void injectorPresenter() {
+    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        dismissWaitingDialog();
         ButterKnife.unbind(this);
     }
 }

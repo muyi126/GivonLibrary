@@ -3,6 +3,8 @@ package com.base.givon.givonlibrary.common.utils;
 
 import com.base.givon.givonlibrary.R;
 import com.base.givon.givonlibrary.common.App;
+import com.base.givon.givonlibrary.common.widget.BaseDialog;
+import com.base.givon.givonlibrary.ui.view.ActLoginActivity;
 import com.orhanobut.logger.Logger;
 
 import java.io.File;
@@ -12,6 +14,7 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
@@ -652,5 +655,29 @@ public class UiUtil {
          */
         void onImageClick(String bigImageUrl);
 
+    }
+
+    public static void exitToLogin(){
+        ExitUtil.getInstance().ExitApp();
+        Intent intent = new Intent(App.getInstance(), ActLoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        App.getInstance().startActivity(intent);
+    }
+
+    public static void showLogOutDialog(){
+        BaseDialog dialog = new BaseDialog(ExitUtil.getInstance().currentActivity());
+        dialog.setBaseDialogType(BaseDialog.BaseDialogType.BASE_DIALOG_TYPE_TWO_BUTTON);
+        dialog.showData("登录过期请重新登录");
+        dialog.setBaseDialogOnClickListener(new BaseDialog.BaseDialogOnClickListener() {
+            @Override
+            public void onSureOnClick(Dialog v) {
+                exitToLogin();
+            }
+
+            @Override
+            public void onCancelOnClick() {
+                exitToLogin();
+            }
+        });
     }
 }

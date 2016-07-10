@@ -1,7 +1,8 @@
 package com.base.givon.givonlibrary.common.net;
 
+import com.jingchu.ltd.carlist.common.net.Converter.ResponseConvertFactory;
 import com.lzy.okhttputils.OkHttpUtils;
-import com.lzy.okhttputils.model.HttpHeaders;
+import com.lzy.okhttputils.utils.HeaderParser;
 
 import javax.inject.Singleton;
 
@@ -26,7 +27,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 public class RetrofitUtils {
     //服务器路径
-    private static final String API_SERVER = "https://api.github.com/";
+    private static final String API_SERVER = "http://192.168.0.16:7080/";
+    private static final int TIME_OUT = 10000;
 
     private static Retrofit mRetrofit;
     private static OkHttpClient mOkHttpClient;
@@ -46,11 +48,13 @@ public class RetrofitUtils {
                 OkHttpUtils okHttpUtils =OkHttpUtils.getInstance();
                 okHttpUtils.debug("Givon");
                 //此处添加header等公共参数
+                okHttpUtils.setConnectTimeout(TIME_OUT);
                 mOkHttpClient = okHttpUtils.getOkHttpClient();
             }
             mRetrofit = new Retrofit.Builder()
                     .baseUrl(API_SERVER)
                     .addConverterFactory(GsonConverterFactory.create())
+//                    .addConverterFactory(ResponseConvertFactory.create())
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .client(mOkHttpClient)
                     .build();
@@ -59,5 +63,8 @@ public class RetrofitUtils {
 
         return mRetrofit;
     }
+
+
+
 
 }

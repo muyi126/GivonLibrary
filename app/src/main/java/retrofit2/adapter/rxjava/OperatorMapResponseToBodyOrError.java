@@ -37,6 +37,7 @@ final class OperatorMapResponseToBodyOrError<T> implements Operator<T, Response<
   @Override public Subscriber<? super Response<T>> call(final Subscriber<? super T> child) {
     return new Subscriber<Response<T>>(child) {
       @Override public void onNext(Response<T> response) {
+        //这个地方可以做response code的判断
         if (response.isSuccessful()) {
           child.onNext(response.body());
         } else {

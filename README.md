@@ -1,6 +1,6 @@
 # GivonLibrary
 ##  前言
-1. 这个项目是为了学习mvp框架搭建的,先以app开发为library基础，完成之后会整理为mvp的library提供给其他项目做框架使用
+1. 这个项目是为了学习mvp框架搭建的,先以app开发为library基础，完成之后会整理为mvp的library提供给其他项目做框架使用，网络请求为retrofit+okhttp3,线程处理使用rxjava，rxjava学习成本很高但是能解决项目后期的代码复杂度的和可阅读性问题，
 
 
 ## APP

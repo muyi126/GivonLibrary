@@ -62,7 +62,12 @@ public class DescribeTextView extends RelativeLayout {
         mDescribeString = b.getString(R.styleable.DescribeTextView_giv_dt_describeText);
         mDescribeTextSize = b.getDimensionPixelSize(R.styleable.DescribeTextView_giv_dt_describeText_size, mTextSize);
         mDescribeTextColor = b.getColor(R.styleable.DescribeTextView_giv_dt_describeText_color, getResources().getColor(R.color.tab_text_enabled));
-        mDescribeTextWidth = b.getDimensionPixelSize(R.styleable.DescribeTextView_giv_dt_describeText_width, UiUtil.dip2px(80));
+        try {
+            mDescribeTextWidth = b.getDimensionPixelSize(R.styleable.DescribeTextView_giv_dt_describeText_width, UiUtil.dip2px(80));
+        } catch (Exception e) {
+
+        }
+
         mTextView = new TextView(context, attrs, android.R.attr.textViewStyle);
         setBackgroundResource(0);
         b.recycle();

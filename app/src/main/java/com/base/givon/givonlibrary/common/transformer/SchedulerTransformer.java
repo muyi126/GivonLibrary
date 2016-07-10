@@ -1,5 +1,10 @@
 package com.base.givon.givonlibrary.common.transformer;
 
+import com.base.givon.givonlibrary.api.entity.element.Repositories;
+import com.base.givon.givonlibrary.common.net.HttpResultFunc;
+
+import java.util.List;
+
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

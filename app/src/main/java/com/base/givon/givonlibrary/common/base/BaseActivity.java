@@ -7,6 +7,7 @@ import com.base.givon.givonlibrary.common.internal.di.component.ApiComponent;
 import com.base.givon.givonlibrary.common.internal.di.component.AppComponent;
 import com.base.givon.givonlibrary.common.internal.di.module.ActivityModule;
 import com.base.givon.givonlibrary.common.utils.ExitUtil;
+import com.base.givon.givonlibrary.common.widget.WaitingDialog;
 import com.github.pwittchen.prefser.library.Prefser;
 import com.levelmoney.velodrome.Velodrome;
 
@@ -58,6 +59,7 @@ public abstract class BaseActivity<PresenterType extends Presenter> extends Nucl
 
     @Inject
     AccountManager accountManager;
+    private WaitingDialog mWaitingDialog;
 
 
     @Override
@@ -125,28 +127,25 @@ public abstract class BaseActivity<PresenterType extends Presenter> extends Nucl
         }
     }
 
-//    protected Map<String, String> getHttpHeaderAuth() {
-//        Prefser prefser = new Prefser(this);
-//        String token = prefser.get(GUEST_TOKEN_KEY, String.class, "");
-//
-//        Map<String, String> map = new HashMap<>();
-//        map.put("Authorization", "Bearer " + token);
-//
-//        return map;
-//    }
-//
-//    protected boolean isLogin() {
-//        accountManager = AccountManager.get(this);
-//        accountType = getString(R.string.auth_account_type);
-//        tokenType = getString(R.string.auth_token_type);
-//        accounts = accountManager.getAccountsByType(accountType);
-//
-//        if (accounts.length > 0) {
-//            return true;
-//        }
-//
-//        return false;
-//    }
+    public void showWaitingDialog(String msg) {
+        if (mWaitingDialog == null) {
+            mWaitingDialog = new WaitingDialog(this);
+            // mWaitingDialog = new ProgressDialog(this);
+            mWaitingDialog.setCanceledOnTouchOutside(false);
+            // mWaitingDialog.setMessage(getString(R.string.action_waiting));
+            mWaitingDialog.setCancelable(true);
+        }
+        mWaitingDialog.setMessage(msg);
+        if (!this.isFinishing() && !mWaitingDialog.isShowing()) {
+            mWaitingDialog.show();
+        }
+    }
+
+    public void dismissWaitingDialog() {
+        if (mWaitingDialog != null && mWaitingDialog.isShowing() && !this.isFinishing()) {
+            mWaitingDialog.dismiss();
+        }
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -178,6 +177,7 @@ public abstract class BaseActivity<PresenterType extends Presenter> extends Nucl
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ExitUtil.getInstance().finishActivity();
+        dismissWaitingDialog();
+        ExitUtil.getInstance().finishActivity(this);
     }
 }

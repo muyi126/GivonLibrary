@@ -6,6 +6,7 @@ import com.base.givon.givonlibrary.common.internal.di.component.DaggerApiCompone
 import com.base.givon.givonlibrary.common.internal.di.component.DaggerAppComponent;
 import com.base.givon.givonlibrary.common.internal.di.module.AppModule;
 import com.base.givon.givonlibrary.common.net.RetrofitUtils;
+import com.base.givon.givonlibrary.common.utils.StringUtil;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.github.pwittchen.prefser.library.Prefser;
 import com.squareup.leakcanary.LeakCanary;
@@ -30,6 +31,7 @@ public class App extends Application {
     public static App mApp;
     private AppComponent appComponent;
     private ApiComponent apiComponent;
+//    private User mUser;
     //初始化了Okhttp
     @Inject
     Retrofit mRetrofit;
@@ -44,10 +46,11 @@ public class App extends Application {
         LeakCanary.install(this);
         initializeInjector();
         initializeInjectorApi();
+//        initUser();
 
     }
 
-    public static App getInstance(){
+    public static App getInstance() {
         return mApp;
     }
 
@@ -81,4 +84,14 @@ public class App extends Application {
         return mPrefser;
     }
 
+//    public User getUser() {
+//        if (null != mUser && !StringUtil.isEmpty(mUser.getToken())) {
+//            return mUser;
+//        }
+//        return null;
+//    }
+//
+//    public void initUser() {
+//        mUser = mPrefser.get(Constant.USER_MODEL, User.class, new User());
+//    }
 }

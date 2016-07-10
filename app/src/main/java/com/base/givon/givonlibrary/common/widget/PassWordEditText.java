@@ -99,11 +99,13 @@ public class PassWordEditText extends RelativeLayout implements Switch.OnChecked
         } else {
             mPsdEditText.setTextColor(Color.BLACK);
         }
-        if (mBackGround != 0) {
-            mPsdEditText.setBackgroundResource(mBackGround);
-        } else {
-            mPsdEditText.setBackgroundResource(0);
-        }
+        //不设置背景
+        mPsdEditText.setBackgroundResource(0);
+//        if (mBackGround != 0) {
+//            mPsdEditText.setBackgroundResource(mBackGround);
+//        } else {
+//            mPsdEditText.setBackgroundResource(0);
+//        }
         if (mTextSize != 0) {
             mPsdEditText.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
         }

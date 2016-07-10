@@ -57,6 +57,7 @@
         <attr name="giv_de_describeText_height" format="dimension|reference" />
         <attr name="giv_de_describeText_width" format="dimension|reference" />
         <attr name="giv_de_describeText_color" format="color|reference" />
+        <attr name="giv_de_describeText_lybg" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="DescribeTextView">

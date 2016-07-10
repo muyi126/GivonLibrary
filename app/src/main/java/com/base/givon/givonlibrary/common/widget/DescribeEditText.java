@@ -7,6 +7,7 @@ import com.base.givon.givonlibrary.common.utils.UiUtil;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -35,6 +36,8 @@ public class DescribeEditText extends RelativeLayout {
     private EditText mEditText;
     private TextView mDescribeText;
     private int mBackGround;
+    //整个View的bg
+    private int mDeLyBackGround;
     private String mHint;
     private int mTextColor;
     private int mTextSize = 15;
@@ -61,6 +64,7 @@ public class DescribeEditText extends RelativeLayout {
         mDescribeString = b.getString(R.styleable.DescribeEditText_giv_de_describeText);
         mDescribeTextSize = b.getDimensionPixelSize(R.styleable.DescribeEditText_giv_de_describeText_size, mTextSize);
         mDescribeTextColor = b.getColor(R.styleable.DescribeEditText_giv_de_describeText_color, getResources().getColor(R.color.tab_text_enabled));
+        mDeLyBackGround = b.getResourceId(R.styleable.DescribeEditText_giv_de_describeText_lybg, 0);
         mDescribeTextWidth = b.getDimensionPixelSize(R.styleable.DescribeEditText_giv_de_describeText_width, UiUtil.dip2px(80));
         mEditText = new EditText(context, attrs, android.R.attr.editTextStyle);
         setBackgroundResource(0);
@@ -86,12 +90,18 @@ public class DescribeEditText extends RelativeLayout {
         } else {
             mEditText.setBackgroundResource(0);
         }
+        if (mDeLyBackGround != 0) {
+            setBackgroundResource(mDeLyBackGround);
+        } else {
+            setBackgroundResource(0);
+        }
         if (mTextSize != 0) {
             mEditText.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
         }
         mEditText.setPadding(UiUtil.dip2px(5), 0, 0, UiUtil.dip2px(5));
         mEditText.setGravity(Gravity.CENTER_VERTICAL);
         addView(mEditText, editTextParams);
+
         LayoutParams mDescribeParams = new LayoutParams(mDescribeTextWidth, ViewGroup.LayoutParams.WRAP_CONTENT);
         mDescribeParams.addRule(CENTER_VERTICAL);
         mDescribeText = new TextView(context);
@@ -103,6 +113,10 @@ public class DescribeEditText extends RelativeLayout {
         addView(mDescribeText, mDescribeParams);
     }
 
+    public void setEditEnable(boolean editEnable){
+        mEditText.setEnabled(editEnable);
+    }
+
 
     public String getText() {
         return mEditText.getText().toString().trim();
@@ -111,5 +125,11 @@ public class DescribeEditText extends RelativeLayout {
     public void setText(CharSequence sequence) {
         mEditText.setText(sequence);
     }
+    public void addTextChangedListener(TextWatcher textWatcher){
+        mEditText.addTextChangedListener(textWatcher);
+    }
+
+
 
 }
+

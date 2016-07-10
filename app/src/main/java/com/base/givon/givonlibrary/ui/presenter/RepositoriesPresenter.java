@@ -1,8 +1,10 @@
 package com.base.givon.givonlibrary.ui.presenter;
 
+import com.base.givon.givonlibrary.api.entity.HttpResult;
 import com.base.givon.givonlibrary.api.entity.RepositoriesEntity;
 import com.base.givon.givonlibrary.api.entity.element.Repositories;
 import com.base.givon.givonlibrary.common.base.BaseRxPresenter;
+import com.base.givon.givonlibrary.common.net.HttpResultFunc;
 import com.base.givon.givonlibrary.common.transformer.SchedulerTransformer;
 import com.base.givon.givonlibrary.module.GitHubModel;
 import com.base.givon.givonlibrary.ui.view.RepositoriesFragment;
@@ -64,11 +66,12 @@ public class RepositoriesPresenter extends BaseRxPresenter<RepositoriesFragment>
                     public Observable<List<Repositories>> call() {
                         return mGitHubModel.getSearchRepositories(mKey, pageIndex, 20)
                                 .map(new Func1<RepositoriesEntity, List<Repositories>>() {
-                            @Override
-                            public List<Repositories> call(RepositoriesEntity repositoriesEntity) {
-                                return repositoriesEntity.getData();
-                            }
-                        }).compose(new SchedulerTransformer<List<Repositories>>());
+                                    @Override
+                                    public List<Repositories> call(RepositoriesEntity repositoriesEntity) {
+                                        return repositoriesEntity.getData();
+                                    }
+                                }).compose(new SchedulerTransformer<List<Repositories>>());
+
                     }
                 }, new Action2<RepositoriesFragment, List<Repositories>>() {
                     @Override
@@ -79,7 +82,7 @@ public class RepositoriesPresenter extends BaseRxPresenter<RepositoriesFragment>
                 new Action2<RepositoriesFragment, Throwable>() {
                     @Override
                     public void call(RepositoriesFragment repositoriesFragment, Throwable throwable) {
-                        repositoriesFragment.onNetworkError(throwable,pageIndex);
+                        repositoriesFragment.onNetworkError(throwable, pageIndex);
                     }
                 }
         );
