@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'me.tatarka.retrolambda'
 
 
 def globalConfiguration = rootProject.extensions.getByName("ext")
@@ -8,6 +7,7 @@ def globalConfiguration = rootProject.extensions.getByName("ext")
 android {
     compileSdkVersion 24
     buildToolsVersion "23.0.3"
+//    resourcePrefix "givlib"	//这个随便填
 
     //设置JDK1.8
     compileOptions {
@@ -21,16 +21,6 @@ android {
         targetSdkVersion globalConfiguration.getAt("ANDROID_TARGET_SDK_VERSION") as int
         versionCode globalConfiguration.getAt("VERSION_CODE") as int
         versionName globalConfiguration.getAt("VERSION_NAME")
-
-        buildConfigField "String", "CLIENT_ID", "\"${APP_CLIENT_ID}\""
-        buildConfigField "String", "CLIENT_SECRET", "\"${APP_CLIENT_SECRET}\""
-        buildConfigField "String", "ENDPOINT", "\"${API_ENDPOINT}\""
-        buildConfigField "String", "QQ_APPID", "\"${QQ_APPID}\""
-        buildConfigField "String", "QQ_APPKEY", "\"${QQ_APPKEY}\""
-        buildConfigField "String", "WX_APPID", "\"${WX_APPID}\""
-        buildConfigField "String", "WX_SECRET", "\"${WX_SECRET}\""
-
-        resValue "string", "jpush_channel", JPUSH_CHANNEL
     }
     buildTypes {
         release {
@@ -38,16 +28,43 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        abortOnError false
+        disable 'InvalidPackage'
+    }
+
+    packagingOptions {
+        // Butter Knife
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE.txt'
+    }
+    configurations {
+        all*.exclude module: 'classworlds'
+        all*.exclude module: 'commons-logging'
+        all*.exclude module: 'httpclient'
+        all*.exclude module: 'maven-artifact'
+        all*.exclude module: 'maven-artifact-manager'
+        all*.exclude module: 'maven-error-diagnostics'
+        all*.exclude module: 'maven-model'
+        all*.exclude module: 'maven-project'
+        all*.exclude module: 'maven-settings'
+        all*.exclude module: 'plexus-container-default'
+        all*.exclude module: 'plexus-interpolation'
+        all*.exclude module: 'plexus-utils'
+        all*.exclude module: 'wagon-file'
+        all*.exclude module: 'wagon-http-lightweight'
+        all*.exclude module: 'wagon-provider-api'
+    }
 }
+
 
 buildscript {
     repositories {
         mavenCentral()
     }
 
-    dependencies {
-        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
-    }
 }
 def SUPPORT_VERSION = "24.0.0"
 
@@ -83,6 +100,9 @@ dependencies {
     // Because RxAndroid releases are few and far between, it is recommended you also
     // explicitly depend on RxJava's latest version for bug fixes and new features.
     compile 'io.reactivex:rxjava:1.1.6'
+    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+    compile 'com.jakewharton.rxbinding:rxbinding-support-v4:0.4.0'
+    compile 'com.jakewharton.rxbinding:rxbinding-appcompat-v7:0.4.0'
     // fresco
     compile 'com.facebook.fresco:fresco:0.11.0'
     //自定义fresco网络加载库,使用okhttp3
@@ -92,9 +112,6 @@ dependencies {
     compile 'com.github.simonpercic:oklog3:0.2.1'
     //logger
     compile 'com.orhanobut:logger:1.13'
-    //A memory leak detection library for Android and Java.内存分析
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
     //    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
     //用于生命周期的保存与恢复状态(maven {url "https://clojars.org/repo/"}) github.com/frankiesardo/icepick
     compile 'frankiesardo:icepick:3.2.0'
@@ -140,13 +157,13 @@ dependencies {
 
 }
 
-android.libraryVariants.all { variant ->
-    def name = variant.buildType.name
-    if (name.equals(com.android.builder.core.BuilderConstants.DEBUG)) {
-        return; // Skip debug builds.
-    }
-    def task = project.tasks.create "jar${name.capitalize()}", Jar
-    task.dependsOn variant.javaCompile
-    task.from variant.javaCompile.destinationDir
-    artifacts.add('archives', task);
-}
+//android.libraryVariants.all { variant ->
+//    def name = variant.buildType.name
+//    if (name.equals(com.android.builder.core.BuilderConstants.DEBUG)) {
+//        return; // Skip debug builds.
+//    }
+//    def task = project.tasks.create "jar${name.capitalize()}", Jar
+//    task.dependsOn variant.javaCompile
+//    task.from variant.javaCompile.destinationDir
+//    artifacts.add('archives', task);
+//}

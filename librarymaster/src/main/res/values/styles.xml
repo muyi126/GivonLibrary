@@ -1,0 +1,123 @@
+<resources>
+
+
+    <style name="ProgressBarStyle" parent="@android:style/Widget.Holo.ProgressBar.Horizontal"/>
+
+    <style name="ListProgressBarStyle" parent="@android:style/Widget.Holo.ProgressBar"/>
+
+    <style name="text_normal">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#444444</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="editTextStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="itemLinearStyle">
+        <item name="android:layout_height">50dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">16dip</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="dialogWindow" parent="android:Animation" mce_bogus="1">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit_anim</item>
+    </style>
+
+    <style name="publish_style">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/tab_text_enabled</item>
+        <item name="android:textColorHint">@color/gray_ac</item>
+    </style>
+
+    <style name="settings_list_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/gray_91</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:divider">@null</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">18dp</item>
+    </style>
+
+    <style name="LightRaiseWaveButtonRippleStyle" parent="Material.Drawable.Ripple.Wave.Light">
+        <item name="android:background">@drawable/base_shape_bg_r</item>
+        <item name="rd_leftPadding">2dp</item>
+        <item name="rd_topPadding">2dp</item>
+        <item name="rd_rightPadding">2dp</item>
+        <item name="rd_bottomPadding">2dp</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Button</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="rd_rippleColor">#88ffffff</item>
+    </style>
+    <style name="LightRaiseWaveButtonRippleStyle_Black" parent="Material.Drawable.Ripple.Wave.Light">
+        <item name="android:background">@drawable/base_shape_bg_r</item>
+        <item name="rd_leftPadding">2dp</item>
+        <item name="rd_topPadding">2dp</item>
+        <item name="rd_rightPadding">2dp</item>
+        <item name="rd_bottomPadding">2dp</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Button</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="rd_rippleColor">#33000000</item>
+    </style>
+
+    <style name="list_topic_title">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#555555</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="order_list_item">
+        <item name="android:layout_height">50dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingLeft">14dip</item>
+        <item name="android:paddingRight">16dip</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">@color/gray_99</item>
+        <item name="android:textSize">@dimen/base_textsize_s</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="order_list_item_desc">
+        <item name="android:layout_height">30dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">@color/gray_99</item>
+        <item name="android:textSize">@dimen/base_textsize_s</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="giv_db_describeText_color">@color/gray_99</item>
+        <item name="giv_db_describeText_draw_left_padding">5dip</item>
+        <item name="giv_db_describeText_padding_right">8dip</item>
+        <item name="giv_db_describeText_size">@dimen/base_textsize_s</item>
+    </style>
+
+
+
+    <style name="selectorDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item> <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item> <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">false</item> <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item> <!-- 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item> <!-- 背景透明 -->
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+
+    <style name="lineStyle">
+        <item name="android:layout_height">1px</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/gray_df</item>
+    </style>
+
+</resources>

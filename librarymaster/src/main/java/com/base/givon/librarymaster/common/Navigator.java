@@ -14,10 +14,7 @@ import javax.inject.Singleton;
  */
 
 @Singleton
-public class Navigator {
-    @Inject
-    public Navigator() {
-    }
+public interface Navigator {
 
     /**
      public void navigateToTopicDetails(@NonNull Context context, int topicId) {

@@ -1,19 +1,15 @@
 package com.base.givon.librarymaster.common;
 
+import com.base.givon.librarymaster.common.internal.di.component.ApiComponent;
 import com.base.givon.librarymaster.common.internal.di.component.AppComponent;
-import com.base.givon.librarymaster.common.internal.di.component.DaggerAppComponent;
 import com.base.givon.librarymaster.common.internal.di.module.AppModule;
-import com.base.givon.librarymaster.common.internal.di.module.ThModule;
-import com.base.givon.librarymaster.common.network.MyOkHttpImagePipelineConfigFactory;
-import com.facebook.drawee.backends.pipeline.Fresco;
+import com.base.givon.librarymaster.common.net.RetrofitUtils;
 import com.github.pwittchen.prefser.library.Prefser;
-import com.squareup.leakcanary.LeakCanary;
 
 import android.app.Application;
 
 import javax.inject.Inject;
 
-import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 
 /**
@@ -28,13 +24,46 @@ import retrofit2.Retrofit;
  */
 public class App extends Application {
     public static App mApp;
+    private AppComponent appComponent;
+    private ApiComponent apiComponent;
+    //    private User mUser;
+    //初始化了Okhttp
+    @Inject
+    Retrofit mRetrofit;
+    @Inject
+    Prefser mPrefser;
+
     @Override
     public void onCreate() {
         super.onCreate();
         mApp = this;
+        initializeInjector();
+        initializeInjectorApi();
     }
 
     public static App getInstance() {
         return mApp;
+    }
+
+    private void initializeInjector() {
+//        appComponent = DaggerAppComponent.builder()
+//                .appModule(new AppModule(this))
+//                .retrofitUtils(new RetrofitUtils())
+//                .build();
+//        getAppComponent().inject(this);
+    }
+
+    private void initializeInjectorApi() {
+//        apiComponent = DaggerApiComponent.builder()
+//                .appModule(new AppModule(this))
+//                .build();
+    }
+
+    public AppComponent getAppComponent() {
+        return appComponent;
+    }
+
+    public ApiComponent getApiComponent() {
+        return apiComponent;
     }
 }

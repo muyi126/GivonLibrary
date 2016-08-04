@@ -1,7 +1,7 @@
 
-include ':app'
-include ':umeng_social_sdk_res_lib'
-include ':appPhp'
+//include ':app'
+//include ':umeng_social_sdk_res_lib'
+//include ':appPhp'
 //include ':retroauth-android'
 //include ':retroauth-core'
 include ':librarymaster'
