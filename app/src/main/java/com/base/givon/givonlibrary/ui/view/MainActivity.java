@@ -4,21 +4,15 @@ package com.base.givon.givonlibrary.ui.view;
 import com.base.givon.givonlibrary.R;
 import com.base.givon.givonlibrary.common.base.BaseActivity;
 import com.base.givon.givonlibrary.common.provider.BusProvider;
-import com.base.givon.givonlibrary.common.utils.ToastUtils;
 import com.base.givon.givonlibrary.module.EventObj.EventLoginResult;
-import com.base.givon.givonlibrary.module.EventObj.EventType;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.hwangjr.rxbus.thread.EventThread;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
-import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItem;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 import com.orhanobut.logger.Logger;
 
-import android.app.Fragment;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -27,7 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 import static com.base.givon.givonlibrary.module.EventObj.EventLoginResult.USER_LOGIN_EVENT_TAG;
 
@@ -41,9 +35,9 @@ import static com.base.givon.givonlibrary.module.EventObj.EventLoginResult.USER_
  * @email:muyi126@163.com
  */
 public class MainActivity extends BaseActivity {
-    @Bind(R.id.viewpager)
+    @BindView(R.id.viewpager)
     ViewPager mViewPager;
-    @Bind(R.id.viewpagertab)
+    @BindView(R.id.viewpagertab)
     SmartTabLayout mSmartTabLayout;
 
     @Override
@@ -63,7 +57,7 @@ public class MainActivity extends BaseActivity {
         final int[] tabIcons = {R.drawable.ic_recommended, R.drawable.ic_topics, R.drawable.ic_wiki, R.drawable.ic_me};
         FragmentPagerItems pages = FragmentPagerItems.with(this)
                 .add("Recommend", RepositoriesFragment.class)
-                .add("Tipoc", RepositoriesFragment.class)
+                .add("onefragment", RepositoriesFragment.class)
                 .create();
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(),
@@ -84,10 +78,10 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @Subscribe(thread = EventThread.MAIN_THREAD,tags = {@Tag(USER_LOGIN_EVENT_TAG)})
-    public void onLoginResult(EventLoginResult rst){
+    @Subscribe(thread = EventThread.MAIN_THREAD, tags = {@Tag(USER_LOGIN_EVENT_TAG)})
+    public void onLoginResult(EventLoginResult rst) {
 //        ToastUtils.showMessage(rst);
-        Logger.e("msg","dasdasdaaaaa");
+        Logger.e("msg", "dasdasdaaaaa");
     }
 
 

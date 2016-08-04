@@ -1,8 +1,6 @@
 package com.base.givon.givonlibrary.common.net;
 
-import com.jingchu.ltd.carlist.common.net.Converter.ResponseConvertFactory;
 import com.lzy.okhttputils.OkHttpUtils;
-import com.lzy.okhttputils.utils.HeaderParser;
 
 import javax.inject.Singleton;
 

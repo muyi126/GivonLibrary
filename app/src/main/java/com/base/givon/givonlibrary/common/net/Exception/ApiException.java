@@ -1,8 +1,6 @@
 package com.base.givon.givonlibrary.common.net.Exception;
 
 /**
- *
- *
  * Copyright 2016 Givon All rights reserved.
  * Givon PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
@@ -13,41 +11,45 @@ package com.base.givon.givonlibrary.common.net.Exception;
  */
 public class ApiException extends RuntimeException {
 
-    public static final int USER_NOT_EXIST = 100;
-    public static final int WRONG_PASSWORD = 101;
-    public static final int TOKEN_INVALID = -1;
+    public static enum ErrorCode {
+        USER_NOT_EXIST(100, "该用户不存在"),
+        WRONG_PASSWORD(101, "密码错误"),
+        TOKEN_INVALID(-1, "Token失效"),;
+        int code;
+        String msg;
+
+        ErrorCode(int code, String msg) {
+            this.code = code;
+            this.msg = msg;
+        }
+
+        public static String getCodeMsg(int code) {
+            for (ErrorCode errorCode : ErrorCode.values()) {
+                if (errorCode.code == code) {
+                    return errorCode.msg;
+                }
+            }
+            return "";
+        }
+
+        public static boolean hasCode(int code) {
+            boolean isHas = false;
+            for (ErrorCode errorCode : ErrorCode.values()) {
+                if (errorCode.code == code) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
 
     public ApiException(int resultCode) {
-        this(getApiExceptionMessage(resultCode));
+        this(ErrorCode.getCodeMsg(resultCode));
     }
 
     public ApiException(String detailMessage) {
         super(detailMessage);
     }
 
-    /**
-     * 由于服务器传递过来的错误信息直接给用户看的话，用户未必能够理解
-     * 需要根据错误码对错误信息进行一个转换，在显示给用户
-     * @param code
-     * @return
-     */
-    private static String getApiExceptionMessage(int code){
-        String message = "";
-        switch (code) {
-            case USER_NOT_EXIST:
-                message = "该用户不存在";
-                break;
-            case WRONG_PASSWORD:
-                message = "密码错误";
-                break;
-            case TOKEN_INVALID:
-                message = "Token失效";
-                break;
-            default:
-                message = "未知错误";
-
-        }
-        return message;
-    }
 }
 

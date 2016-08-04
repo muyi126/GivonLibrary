@@ -15,3 +15,5 @@ include 'okhttputils'
 project(':okhttputils').projectDir = new File(settingsDir, '../GitHubObj/OkHttpUtils/okhttputils')
 include 'okhttpserver'
 project(':okhttpserver').projectDir = new File(settingsDir, '../GitHubObj/OkHttpUtils/okhttpserver')
+include 'wheel_g'
+project(':wheel_g').projectDir = new File(settingsDir, '../GitHubObj/wheel_g')

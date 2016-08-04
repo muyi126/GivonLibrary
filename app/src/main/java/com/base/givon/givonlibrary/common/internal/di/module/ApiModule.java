@@ -1,6 +1,7 @@
 package com.base.givon.givonlibrary.common.internal.di.module;
 
 import com.base.givon.givonlibrary.common.internal.di.qualifier.ForApplication;
+import com.base.givon.givonlibrary.module.DrBaseModel;
 import com.base.givon.givonlibrary.module.GitHubModel;
 
 import android.content.Context;
@@ -19,6 +20,12 @@ public class ApiModule {
     @Singleton
     GitHubModel provideTopicModelByAuth(@ForApplication Context context) {
         return new GitHubModel(context);
+    }
+
+    @Provides
+    @Singleton
+    DrBaseModel provideDrBaseModel(@ForApplication Context context) {
+        return new DrBaseModel(context);
     }
 
 

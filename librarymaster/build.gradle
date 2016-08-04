@@ -52,7 +52,7 @@ buildscript {
 def SUPPORT_VERSION = "24.0.0"
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:support-annotations:' + SUPPORT_VERSION
     compile 'com.android.support:support-v13:' + SUPPORT_VERSION
     compile 'com.android.support:cardview-v7:' + SUPPORT_VERSION
@@ -64,51 +64,78 @@ dependencies {
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support:support-annotations:' + SUPPORT_VERSION
-
     //这里的依赖readme有说到
-    compile 'com.jakewharton:butterknife:7.0.1'
-
+    compile 'com.jakewharton:butterknife:8.2.1'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
     //Nucleus
     compile 'info.android15.nucleus:nucleus:2.0.1'
     compile 'info.android15.nucleus:nucleus-support-v7:2.0.1'
     compile 'info.android15.nucleus:nucleus-support-v4:2.0.1'
-
+    //Google
     compile 'com.google.dagger:dagger:2.0.1'
     apt 'com.google.dagger:dagger-compiler:2.0.1'
+    compile 'com.google.code.gson:gson:2.7'
     provided 'javax.annotation:jsr250-api:1.0'
-
     //Wrapper for Android SharedPreferences with object serialization and RxJava Observables
     compile 'com.github.pwittchen:prefser:2.0.5'
-
     //rxJava
     compile 'io.reactivex:rxandroid:1.2.1'
     // Because RxAndroid releases are few and far between, it is recommended you also
     // explicitly depend on RxJava's latest version for bug fixes and new features.
     compile 'io.reactivex:rxjava:1.1.6'
-
-
     // fresco
     compile 'com.facebook.fresco:fresco:0.11.0'
     //自定义fresco网络加载库,使用okhttp3
-//    compile 'com.facebook.fresco:imagepipeline-okhttp:0.11.0'
+    //    compile 'com.facebook.fresco:imagepipeline-okhttp:0.11.0'
     compile 'com.squareup.okhttp3:okhttp:3.3.1'
-    //log
+    //minSdkVersion 15
+    compile 'com.github.simonpercic:oklog3:0.2.1'
+    //logger
     compile 'com.orhanobut:logger:1.13'
-
     //A memory leak detection library for Android and Java.内存分析
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
-//    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
-
+    //    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
     //用于生命周期的保存与恢复状态(maven {url "https://clojars.org/repo/"}) github.com/frankiesardo/icepick
     compile 'frankiesardo:icepick:3.2.0'
     provided 'frankiesardo:icepick-processor:3.2.0'
-
     //otto
-    compile 'com.squareup:otto:1.3.8'
-
+    //    compile 'com.squareup:otto:1.3.8'
+    //RxBus
+    compile 'com.hwangjr.rxbus:rxbus:1.0.4'
     //retrofit
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    //    compile 'com.squareup.retrofit2:retrofit-adapters:2.1.0'
+    //一个简化onActivityResult流的库
+    compile 'com.levelmoney.velodrome:velodrome:1.0'
+    //smarttablayout
+    compile 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
+    //Optional: see how to use the utility.
+    compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
+    //multistateview基于状态显示不同内容的安卓视图
+    compile 'com.github.Kennyc1012:MultiStateView:1.2.0'
+    //https://github.com/mrmans0n/smart-adapters
+    // Android库项目，旨在简化适配器/ recyclerview使用GridView和ListView。你不必再为任何无聊的适配器编码了！
+    //它有助于保持样板到最小并添加容易改变baseadapter / recyclerview之间的可能性。适配器适配器类型不改变任何代码。它还允许使用相同的列表或网格的多个模型/视图类型的无痛使用-只在模型对象和视图对象之间添加不同的映射。
+    //以前的NL工具包的一部分。
+    compile 'io.nlopez.smartadapters:library:1.3.1'
+    //https://github.com/android-cjj/Android-MaterialRefreshLayout/blob/master/README-cn.md
+    compile 'com.cjj.materialrefeshlayout:library:1.3.0'
+    compile 'com.nineoldandroids:library:2.4.0'
+    //消息提示圆圈标记库
+    compile 'cn.bingoogolapple:bga-badgeview:1.1.2@aar'
+    //百分比布局库 https://github.com/hongyangAndroid/android-percent-support-extend
+    compile 'com.zhy:percent-support-extends:1.1.1'
+    //prettytime
+    compile 'org.ocpsoft.prettytime:prettytime:3.2.7.Final'
+    //retroauth登录账户
+    //    compile 'com.andretietz.retroauth:2.0.0@aar'
+    //   compile 'com.github.andretietz:retroauth:2.0.0'
+    //    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.rey5137:material:1.2.1.6-SNAPSHOT'
+    compile project(':okhttputils')
+    compile project(':wheel_g')
 
 
 }

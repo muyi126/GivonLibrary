@@ -16,6 +16,7 @@ import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 
 import retrofit2.adapter.rxjava.HttpException;
+import rx.functions.Action1;
 import rx.functions.Action2;
 
 /**
@@ -27,9 +28,11 @@ import rx.functions.Action2;
  * @七月 16/7/8 上午10:27 - Guzhu
  * @email:muyi126@163.com
  */
-public abstract class ErrorBaseException<T> implements Action2<T, Throwable> {
+public abstract class ErrorBaseException1 implements Action1<Throwable> {
     @Override
-    public void call(T t, Throwable throwable) {
+    public void call(Throwable throwable) {
+        String json = null;
+        String msg = null;
         if (throwable instanceof SocketTimeoutException) {
             Toast.makeText(App.getInstance(), "网络中断，请检查您的网络状态", Toast.LENGTH_SHORT).show();
             ToastUtils.showMessage("链接超时,请检查你的网络");
@@ -37,7 +40,6 @@ public abstract class ErrorBaseException<T> implements Action2<T, Throwable> {
             ToastUtils.showMessage("链接中断,请检查你的网络");
         } else if (throwable instanceof HttpException) {
             if (((HttpException) throwable).code() == 500) {
-                String json = null;
                 try {
                     json = ((HttpException) throwable).response().errorBody().string();
                 } catch (IOException e) {
@@ -48,21 +50,36 @@ public abstract class ErrorBaseException<T> implements Action2<T, Throwable> {
                     HttpResult httpResult = gson.fromJson(json, HttpResult.class);
                     if (!StringUtil.isEmpty(httpResult.getMessage())) {
                         ToastUtils.showMessage(httpResult.getMessage());
+                        msg = httpResult.getMessage();
                     }
                 } else {
                     ToastUtils.showMessage("服务器内部错误");
                 }
 
+            } else if (((HttpException) throwable).code() == 404) {
+                ToastUtils.showMessage("页面找不到了");
             }
-        }else if(throwable instanceof ApiException){
+        } else if (throwable instanceof ApiException) {
             String detailMsg = throwable.getMessage();
-            if("Token失效".equals(detailMsg)){
+            if ("Token失效".equals(detailMsg)) {
                 //重新登录
                 UiUtil.showLogOutDialog();
+            } else if (!StringUtil.isEmpty(throwable.getMessage())) {
+                ToastUtils.showMessage(throwable.getMessage());
+            }
+        } else {
+            if (!StringUtil.isEmpty(throwable.getMessage())) {
+//                ToastUtils.showMessage(throwable.getMessage());
             }
         }
-        toCall(t, throwable);
+        toCall(throwable);
+        toCall(throwable, json, msg);
     }
 
-    public abstract void toCall(T t, Throwable throwable);
+    public abstract void toCall(Throwable throwable);
+
+    public void toCall(Throwable throwable, String json, String msg) {
+
+    }
+
 }

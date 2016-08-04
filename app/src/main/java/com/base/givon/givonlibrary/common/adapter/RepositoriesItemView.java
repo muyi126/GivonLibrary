@@ -11,7 +11,7 @@ import android.net.Uri;
 import android.view.View;
 import android.widget.TextView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import cn.bingoogolapple.badgeview.BGABadgeRelativeLayout;
 
 import static com.base.givon.givonlibrary.common.qualifier.ClickType.CLICK_TYPE_TOPIC_CLICKED;
@@ -30,16 +30,16 @@ import static com.base.givon.givonlibrary.common.qualifier.ClickType.CLICK_TYPE_
  */
 public class RepositoriesItemView extends BaseAdapterItemView<Repositories>{
 
-    @Bind(R.id.bga_rlyt_content)
+    @BindView(R.id.bga_rlyt_content)
     BGABadgeRelativeLayout topicContentView;
 
-    @Bind(R.id.tv_title)
+    @BindView(R.id.tv_title)
     TextView titleView;
 
-    @Bind(R.id.sdv_avatar)
+    @BindView(R.id.sdv_avatar)
     SimpleDraweeView avatarView;
 
-    @Bind(R.id.tv_description)
+    @BindView(R.id.tv_description)
     TextView descriptionView;
     public RepositoriesItemView(Context context) {
         super(context);

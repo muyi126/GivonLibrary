@@ -27,9 +27,13 @@
     <color name="profile_item_divider">#D6D6D6</color>
 
     <color name="blue">#ff03A9F4</color>
+    <color name="blue_1ab2e8">#1ab2e8</color>
     <color name="green">#ff4CAF50</color>
+    <color name="green_0f8f5f">#0f8f5f</color>
     <color name="red">#ffF44336</color>
+    <color name="red_f56d6d">#f56d6d</color>
     <color name="yellow">#ffFFEB3B</color>
+    <color name="yellow_f1ae3b">#f1ae3b</color>
     <color name="yellow_20">#FAD394</color>
     <color name="yellow_border">#E2A440</color>
     <color name="blue_20">#92D0EA</color>
@@ -37,6 +41,7 @@
 
     <color name="topic_header_bg">#F6F6F6</color>
 
+    <color name="gray_44">#444444</color>
     <color name="gray_66">#666666</color>
     <color name="gray_6b">#6B6B6B</color>
     <color name="gray_7b">#7B7676</color>
@@ -52,4 +57,7 @@
     <color name="blue_a5">#A5B3C0</color>
 
     <color name="red_DE">#DE7676</color>
+
+    <color name="color_0f8f5f">#0f8f5f</color>
+    <color name="color_fe8922">#fe8922</color>
 </resources>

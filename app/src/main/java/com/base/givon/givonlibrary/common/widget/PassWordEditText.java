@@ -1,8 +1,8 @@
 package com.base.givon.givonlibrary.common.widget;
 
+
 import com.base.givon.givonlibrary.R;
 import com.base.givon.givonlibrary.common.utils.StringUtil;
-import com.base.givon.givonlibrary.common.utils.UiUtil;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -44,6 +44,7 @@ public class PassWordEditText extends RelativeLayout implements Switch.OnChecked
     private String mHint;
     private int mTextColor;
     private int mTextSize = 15;
+    private boolean isSwitchEnable;
 
     public PassWordEditText(Context context) {
         this(context, null);
@@ -82,6 +83,9 @@ public class PassWordEditText extends RelativeLayout implements Switch.OnChecked
         mTextSize = a.getDimensionPixelSize(R.styleable.TextView_android_textSize, mTextSize);
         mPsdEditText = new EditText(context, attrs, android.R.attr.editTextStyle);
         a.recycle();
+        final TypedArray b = context.obtainStyledAttributes(
+                attrs, R.styleable.PassWordEditText, 0, 0);
+        isSwitchEnable = b.getBoolean(R.styleable.PassWordEditText_giv_pe_isEnableSwitch, true);
         init(context);
     }
 
@@ -116,9 +120,14 @@ public class PassWordEditText extends RelativeLayout implements Switch.OnChecked
         //materail的控件暂时没有加入
         mSwitch = new Switch(context, R.style.Material_Widget_Switch);
         mSwitch.setId(R.id.psd_checkBox);
-        mSwitchxParams.setMargins(0, 0, 0, UiUtil.dip2px(16));
+        mSwitchxParams.setMargins(0, 0, 0, 0);
         mSwitch.setOnCheckedChangeListener(this);
         addView(mSwitch, mSwitchxParams);
+        if (isSwitchEnable) {
+            mSwitch.setVisibility(VISIBLE);
+        } else {
+            mSwitch.setVisibility(GONE);
+        }
         initEditStuts();
     }
 
@@ -154,12 +163,12 @@ public class PassWordEditText extends RelativeLayout implements Switch.OnChecked
     @Override
     protected void onFocusChanged(boolean gainFocus, int direction, Rect previouslyFocusedRect) {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
-        if(gainFocus){
+        if (gainFocus) {
             mPsdEditText.setFocusable(true);
             mPsdEditText.setFocusableInTouchMode(true);
             mPsdEditText.requestFocus();
             mPsdEditText.requestFocusFromTouch();
-            if(getText().length() > 0){
+            if (getText().length() > 0) {
                 mPsdEditText.setSelection(getText().length());
             }
         }

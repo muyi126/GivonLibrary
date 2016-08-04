@@ -1,12 +1,12 @@
 package com.base.givon.givonlibrary.common.base;
 
+
 import com.base.givon.givonlibrary.R;
 import com.base.givon.givonlibrary.common.App;
 import com.base.givon.givonlibrary.common.Navigator;
 import com.base.givon.givonlibrary.common.internal.di.component.ApiComponent;
 import com.base.givon.givonlibrary.common.internal.di.component.AppComponent;
 import com.base.givon.givonlibrary.common.widget.WaitingDialog;
-
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,23 +15,25 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import icepick.Icepick;
 import nucleus.presenter.Presenter;
 import nucleus.view.NucleusSupportFragment;
 
 public abstract class BaseSupportFragment<PresenterType extends Presenter> extends NucleusSupportFragment<PresenterType> {
     @Nullable
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     public Toolbar toolbarView;
 
     @Nullable
-    @Bind(R.id.toolbar_title)
+    @BindView(R.id.toolbar_title)
     public TextView toolbarTitleView;
 
     public Navigator navigator;
     private WaitingDialog mWaitingDialog;
+    private Unbinder mUnbinder;
 
     @Override
     public void onSaveInstanceState(Bundle bundle) {
@@ -51,7 +53,7 @@ public abstract class BaseSupportFragment<PresenterType extends Presenter> exten
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Icepick.restoreInstanceState(this, savedInstanceState);
-        ButterKnife.bind(this, view);
+        mUnbinder = ButterKnife.bind(this, view);
 
         if (toolbarTitleView != null && !TextUtils.isEmpty(getTitle())) {
             toolbarTitleView.setText(getTitle());
@@ -97,6 +99,8 @@ public abstract class BaseSupportFragment<PresenterType extends Presenter> exten
     public void onDestroyView() {
         super.onDestroyView();
         dismissWaitingDialog();
-        ButterKnife.unbind(this);
+        if (null != mUnbinder) {
+            mUnbinder.unbind();
+        }
     }
 }

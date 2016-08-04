@@ -2,22 +2,16 @@ package com.base.givon.givonlibrary.ui.view;
 
 import com.base.givon.givonlibrary.R;
 import com.base.givon.givonlibrary.common.base.BaseActivity;
-import com.base.givon.givonlibrary.common.provider.BusProvider;
 import com.base.givon.givonlibrary.common.widget.ClearEditText;
 import com.base.givon.givonlibrary.common.widget.PassWordEditText;
-import com.base.givon.givonlibrary.module.EventObj.EventLoginResult;
-import com.base.givon.givonlibrary.module.EventObj.EventType;
 import com.base.givon.givonlibrary.ui.presenter.ActLoginPresenter;
-import com.hwangjr.rxbus.annotation.Produce;
-import com.hwangjr.rxbus.annotation.Tag;
-import com.hwangjr.rxbus.thread.EventThread;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 import nucleus.factory.RequiresPresenter;
 
@@ -35,9 +29,9 @@ import nucleus.factory.RequiresPresenter;
 @RequiresPresenter(ActLoginPresenter.class)
 public class ActLoginActivity extends BaseActivity<ActLoginPresenter>{
 
-    @Bind(R.id.et_user_name)
+    @BindView(R.id.et_user_name)
     ClearEditText et_userName;
-    @Bind(R.id.et_psd)
+    @BindView(R.id.et_psd)
     PassWordEditText et_userPasswrd;
     @Override
     protected int getLayoutResId() {

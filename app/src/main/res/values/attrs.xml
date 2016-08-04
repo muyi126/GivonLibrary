@@ -1,70 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="TextView">
-        <attr name="android:drawableBottom" />
-        <attr name="android:drawableEnd" />
-        <attr name="android:drawableLeft" />
-        <attr name="android:drawablePadding" />
-        <attr name="android:drawableRight" />
-        <attr name="android:drawableStart" />
-        <attr name="android:drawableTop" />
-        <attr name="android:fontFamily" />
-        <attr name="tv_fontFamily" />
-        <attr name="android:elegantTextHeight" />
-        <attr name="android:fontFeatureSettings" />
-        <attr name="android:gravity" />
-        <attr name="android:lines" />
-        <attr name="android:letterSpacing" />
-        <attr name="android:lineSpacingExtra" />
-        <attr name="android:lineSpacingMultiplier" />
-        <attr name="android:height" />
-        <attr name="android:ems" />
-        <attr name="android:width" />
-        <attr name="android:includeFontPadding" />
-        <attr name="android:cursorVisible" />
-        <attr name="android:maxEms" />
-        <attr name="android:maxHeight" />
-        <attr name="android:maxLength" />
-        <attr name="android:maxLines" />
-        <attr name="android:maxWidth" />
-        <attr name="android:minEms" />
-        <attr name="android:minHeight" />
-        <attr name="android:minLines" />
-        <attr name="android:minWidth" />
-        <attr name="android:scrollHorizontally" />
-        <attr name="android:shadowColor" />
-        <attr name="android:shadowDx" />
-        <attr name="android:shadowDy" />
-        <attr name="android:shadowRadius" />
-        <attr name="android:singleLine" />
-        <attr name="android:textAllCaps" />
-        <attr name="android:textColor" />
-        <attr name="android:textColorHighlight" />
-        <attr name="android:textCursorDrawable" />
-        <attr name="android:textColorHint" />
-        <attr name="android:textColorLink" />
-        <attr name="android:textScaleX" />
-        <attr name="android:textSize" />
-        <attr name="android:textStyle" />
-        <attr name="android:typeface" />
-        <attr name="android:inputType" />
-        <attr name="android:hint" />
-        <attr name="android:background" />
-    </declare-styleable>
-    <declare-styleable name="DescribeEditText">
-        <attr name="giv_de_describeText" format="reference|string" />
-        <attr name="giv_de_describeText_size" format="dimension|reference" />
-        <attr name="giv_de_describeText_height" format="dimension|reference" />
-        <attr name="giv_de_describeText_width" format="dimension|reference" />
-        <attr name="giv_de_describeText_color" format="color|reference" />
-        <attr name="giv_de_describeText_lybg" format="reference" />
+        <attr name="android:drawableBottom"/>
+        <attr name="android:drawableEnd"/>
+        <attr name="android:drawableLeft"/>
+        <attr name="android:drawablePadding"/>
+        <attr name="android:drawableRight"/>
+        <attr name="android:drawableStart"/>
+        <attr name="android:drawableTop"/>
+        <attr name="android:fontFamily"/>
+        <attr name="tv_fontFamily"/>
+        <attr name="android:elegantTextHeight"/>
+        <attr name="android:fontFeatureSettings"/>
+        <attr name="android:gravity"/>
+        <attr name="android:lines"/>
+        <attr name="android:letterSpacing"/>
+        <attr name="android:lineSpacingExtra"/>
+        <attr name="android:lineSpacingMultiplier"/>
+        <attr name="android:height"/>
+        <attr name="android:ems"/>
+        <attr name="android:width"/>
+        <attr name="android:includeFontPadding"/>
+        <attr name="android:cursorVisible"/>
+        <attr name="android:maxEms"/>
+        <attr name="android:maxHeight"/>
+        <attr name="android:maxLength"/>
+        <attr name="android:maxLines"/>
+        <attr name="android:maxWidth"/>
+        <attr name="android:minEms"/>
+        <attr name="android:minHeight"/>
+        <attr name="android:minLines"/>
+        <attr name="android:minWidth"/>
+        <attr name="android:scrollHorizontally"/>
+        <attr name="android:shadowColor"/>
+        <attr name="android:shadowDx"/>
+        <attr name="android:shadowDy"/>
+        <attr name="android:shadowRadius"/>
+        <attr name="android:singleLine"/>
+        <attr name="android:textAllCaps"/>
+        <attr name="android:textColor"/>
+        <attr name="android:textColorHighlight"/>
+        <attr name="android:textCursorDrawable"/>
+        <attr name="android:textColorHint"/>
+        <attr name="android:textColorLink"/>
+        <attr name="android:textScaleX"/>
+        <attr name="android:textSize"/>
+        <attr name="android:textStyle"/>
+        <attr name="android:typeface"/>
+        <attr name="android:inputType"/>
+        <attr name="android:hint"/>
+        <attr name="android:background"/>
     </declare-styleable>
 
-    <declare-styleable name="DescribeTextView">
-        <attr name="giv_dt_describeText" format="reference|string" />
-        <attr name="giv_dt_describeText_size" format="dimension|reference" />
-        <attr name="giv_dt_describeText_height" format="dimension|reference" />
-        <attr name="giv_dt_describeText_width" format="dimension|reference" />
-        <attr name="giv_dt_describeText_color" format="color|reference" />
+    <declare-styleable name="PassWordEditText">
+        <attr name="giv_pe_isEnableSwitch" format="reference|boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="DescribeBuildView">
+        <attr name="giv_db_describeText" format="reference|string"/>
+        <attr name="giv_db_describeText_size" format="dimension|reference"/>
+        <attr name="giv_db_describeText_height" format="dimension|reference"/>
+        <attr name="giv_db_describeText_width" format="dimension|reference"/>
+        <attr name="giv_db_describeText_color" format="color|reference"/>
+        <attr name="giv_db_describeText_draw_left" format="reference"/>
+        <attr name="giv_db_describeText_draw_left_padding" format="dimension|reference"/>
+        <attr name="giv_db_describeText_padding_right" format="dimension|reference"/>
+        <attr name="giv_db_describeText_padding_left" format="dimension|reference"/>
+        <attr name="giv_db_describeText_bg" format="reference"/>
+        <attr name="giv_db_describeText_rl_bg" format="reference"/>
     </declare-styleable>
 </resources>

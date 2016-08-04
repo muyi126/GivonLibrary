@@ -53,12 +53,12 @@ public abstract class LazyFragment<PresenterType extends Presenter> extends Base
         }
         return true;
     }
-
+    //Fragment可见时
     protected void onVisible(){
         lazyLoad();
     }
 
     protected abstract void lazyLoad();
-
+    //Fragment不可见时
     protected void onInvisible(){}
 }

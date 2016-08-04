@@ -14,49 +14,27 @@ import android.app.Application;
 import javax.inject.Inject;
 
 import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
 
 /**
- *
- *
  * Copyright 2016 Givon All rights reserved.
  * Givon PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
  * @author givon
  * @version 1.0
  * @六月 16/6/20 下午12:57 - Guzhu
- * @email:muyi126@163.com
- *
- * fixMe
+ * @email:muyi126@163.com fixMe
  * 1.初始化fresco的网络加载库
  */
-public class App extends Application{
-    private AppComponent mAppComponent;
-
-    //Inject自动初始化
-    @Inject
-    Prefser mPrefser;
-
+public class App extends Application {
+    public static App mApp;
     @Override
     public void onCreate() {
         super.onCreate();
-        //图片加载初始化
-        Fresco.initialize(this);
-        //内存分析初始化
-        LeakCanary.install(this);
-        MyOkHttpImagePipelineConfigFactory.newBuilder(this,new OkHttpClient());
-        initializeInjector();
+        mApp = this;
     }
 
-    private void initializeInjector(){
-        mAppComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule(this))
-                .thModule(new ThModule(this))
-                .build();
+    public static App getInstance() {
+        return mApp;
     }
-
-    public AppComponent getAppComponent() {
-        return mAppComponent;
-    }
-
-
 }

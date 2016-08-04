@@ -4,6 +4,7 @@ import com.base.givon.givonlibrary.common.App;
 import com.base.givon.givonlibrary.common.Navigator;
 import com.base.givon.givonlibrary.common.internal.di.module.AppModule;
 import com.base.givon.givonlibrary.common.net.RetrofitUtils;
+import com.base.givon.givonlibrary.ui.orderList.fragment.OrderListFragment;
 import com.base.givon.givonlibrary.ui.view.RepositoriesFragment;
 
 
@@ -30,4 +31,5 @@ public interface AppComponent {
     void inject(Retrofit retrofit);
     void inject(RepositoriesFragment repositoriesFragment);
     void inject(App app);
+    void inject(OrderListFragment orderListFragment);
 }

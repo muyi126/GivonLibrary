@@ -18,6 +18,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.view.ActLoginActivity" android:screenOrientation="portrait"/>
+        <!--订单列表-->
+        <activity android:name=".ui.orderList.ActOrderLsitActivity"
+                  android:screenOrientation="portrait"
+                  android:parentActivityName=".ui.view.MainActivity"/>
     </application>
 
 </manifest>

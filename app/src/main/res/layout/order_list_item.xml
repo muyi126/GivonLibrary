@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tool="http://schemas.android.com/tools"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <LinearLayout
+            android:id="@+id/ly_root"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_height="match_parent">
+        <View style="@style/lineStyle"/>
+        <RelativeLayout style="@style/itemLinearStyle">
+            <com.base.givon.givonlibrary.common.widget.TextDescribeBodyView
+                    android:id="@+id/dt_order_num"
+                    style="@style/order_list_item"
+                    app:giv_db_describeText="订单号:"
+                    android:paddingLeft="1dip"
+                    app:giv_db_describeText_width="55dip"
+                    tool:text="12356789000211"
+                    app:giv_db_describeText_color="@color/gray_99"
+                    app:giv_db_describeText_size="@dimen/base_textsize_s"
+            />
+            <TextView
+                    android:id="@+id/tv_sure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="已确认"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="16dp"
+                    android:textColor="@color/blue_1ab2e8"
+                    android:textSize="@dimen/base_textsize_s"
+            />
+
+        </RelativeLayout>
+
+        <View style="@style/lineStyle"
+              android:layout_height="2px"
+              android:layout_marginLeft="16dip"
+              android:layout_marginRight="16dip"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="horizontal"
+                      android:layout_height="wrap_content">
+            <TextView
+                    android:id="@+id/tv_state"
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="14dip"
+                    android:layout_marginTop="14dip"
+                    android:gravity="center"
+                    android:background="@color/white"
+
+            />
+            <LinearLayout android:layout_width="match_parent"
+                          android:orientation="vertical"
+                          android:layout_marginTop="16dip"
+                          android:layout_marginLeft="16dip"
+                          android:layout_height="wrap_content">
+                <RelativeLayout android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                    <TextView
+                            android:id="@+id/tv_destination"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/tv_people_count"
+                            android:textSize="@dimen/base_textsize"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/gray_44"
+                            tool:text="接成都机场"
+                    />
+                    <TextView
+                            android:id="@+id/tv_people_count"
+                            android:layout_width="70dip"
+                            android:layout_height="20dip"
+                            android:textSize="@dimen/base_textsize_ss"
+                            android:layout_marginRight="16dip"
+                            android:layout_alignParentRight="true"
+                            android:gravity="center"
+                            android:textColor="@color/gray_99"
+                            android:background="@drawable/line_box_bg"
+                    />
+
+                </RelativeLayout>
+
+                <com.base.givon.givonlibrary.common.widget.TextDescribeBodyView
+                        android:id="@+id/dt_use_time"
+                        style="@style/order_list_item_desc"
+                        app:giv_db_describeText="用车时间:"
+                        android:layout_height="30dip"
+                        android:layout_marginTop="5dip"
+                        android:layout_width="match_parent"
+                        app:giv_db_describeText_draw_left="@mipmap/list_usecar"
+                        tool:text="2015.8.14至2015.8.14"
+                        android:visibility="visible"
+                />
+
+                <com.base.givon.givonlibrary.common.widget.TextDescribeBodyView
+                        android:id="@+id/dt_order_time"
+                        style="@style/order_list_item_desc"
+                        app:giv_db_describeText="发车时间:"
+                        android:paddingLeft="0dip"
+                        android:paddingRight="0dip"
+                        android:layout_height="30dip"
+                        android:textColor="@color/gray_99"
+                        android:layout_width="match_parent"
+                        android:lines="1"
+                        app:giv_db_describeText_draw_left="@mipmap/list_time"
+
+                />
+
+                <ccom.base.givon.givonlibrary.common.widget.TextDescribeBodyView
+                        android:id="@+id/dt_order_location"
+                        style="@style/order_list_item_desc"
+                        app:giv_db_describeText="上车点:"
+                        android:layout_width="wrap_content"
+                        android:layout_marginBottom="16dip"
+                        app:giv_db_describeText_draw_left="@mipmap/list_address"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View style="@style/lineStyle"/>
+        <LinearLayout style="@style/itemLinearStyle"
+                      android:gravity="center"
+                      android:background="#fff9f3"
+        >
+            <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    tool:text="任务时间:2015.8.14 15:16至2015.8.14 15:16"
+                    android:textSize="@dimen/base_textsize_ss"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+        <View style="@style/lineStyle"/>
+    </LinearLayout>
+</RelativeLayout>

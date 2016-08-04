@@ -8,10 +8,8 @@ import com.base.givon.givonlibrary.common.internal.di.component.AppComponent;
 import com.base.givon.givonlibrary.common.internal.di.module.ActivityModule;
 import com.base.givon.givonlibrary.common.utils.ExitUtil;
 import com.base.givon.givonlibrary.common.widget.WaitingDialog;
-import com.github.pwittchen.prefser.library.Prefser;
 import com.levelmoney.velodrome.Velodrome;
 
-import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -24,20 +22,16 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import icepick.Icepick;
 import nucleus.presenter.Presenter;
 import nucleus.view.NucleusAppCompatActivity;
 
 /**
- *
- *
  * Copyright 2016 Givon All rights reserved.
  * Givon PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
  *
@@ -48,11 +42,11 @@ import nucleus.view.NucleusAppCompatActivity;
  */
 public abstract class BaseActivity<PresenterType extends Presenter> extends NucleusAppCompatActivity<PresenterType> {
     @Nullable
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbarView;
 
     @Nullable
-    @Bind(R.id.toolbar_title)
+    @BindView(R.id.toolbar_title)
     public TextView toolbarTitleView;
 
     public Navigator navigator;
@@ -60,6 +54,7 @@ public abstract class BaseActivity<PresenterType extends Presenter> extends Nucl
     @Inject
     AccountManager accountManager;
     private WaitingDialog mWaitingDialog;
+    private Unbinder mUnbinder;
 
 
     @Override
@@ -68,7 +63,7 @@ public abstract class BaseActivity<PresenterType extends Presenter> extends Nucl
         super.onCreate(savedInstanceState);
         Icepick.restoreInstanceState(this, savedInstanceState);
         ExitUtil.getInstance().addInstance(this);
-        if(getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_PORTRAIT){
+        if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
 
@@ -104,7 +99,7 @@ public abstract class BaseActivity<PresenterType extends Presenter> extends Nucl
     @Override
     public void onContentChanged() {
         super.onContentChanged();
-        ButterKnife.bind(this);
+        mUnbinder = ButterKnife.bind(this);
     }
 
     protected void initializeToolbar() {
@@ -117,7 +112,7 @@ public abstract class BaseActivity<PresenterType extends Presenter> extends Nucl
         }
         if (!TextUtils.isEmpty(NavUtils.getParentActivityName(this))) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setHomeAsUpIndicator(R.mipmap.ic_back);
+            getSupportActionBar().setHomeAsUpIndicator(R.mipmap.left);
             toolbarView.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -169,15 +164,24 @@ public abstract class BaseActivity<PresenterType extends Presenter> extends Nucl
         return new ActivityModule(this);
     }
 
-    protected void injectorPresenter() {}
+    protected void injectorPresenter() {
 
-    abstract protected @LayoutRes
+    }
+
+    abstract protected
+    @LayoutRes
     int getLayoutResId();
+
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         dismissWaitingDialog();
+        if (null != mUnbinder) {
+            mUnbinder.unbind();
+        }
         ExitUtil.getInstance().finishActivity(this);
     }
+
+
 }

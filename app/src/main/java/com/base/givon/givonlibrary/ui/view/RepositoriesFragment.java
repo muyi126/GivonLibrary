@@ -26,7 +26,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import io.nlopez.smartadapters.SmartAdapter;
 import io.nlopez.smartadapters.adapters.RecyclerMultiAdapter;
 import io.nlopez.smartadapters.utils.ViewEventListener;
@@ -54,13 +54,13 @@ public class RepositoriesFragment extends LazyFragment<RepositoriesPresenter> im
 
     RecyclerMultiAdapter adapter;
 
-    @Bind(R.id.multiStateView)
+    @BindView(R.id.multiStateView)
     MultiStateView multiStateView;
 
-    @Bind(R.id.refresh)
+    @BindView(R.id.refresh)
     MaterialRefreshLayout refreshView;
 
-    @Bind(R.id.recycler_view)
+    @BindView(R.id.recycler_view)
     RecyclerView topicListView;
     @Inject
     AccountManager accountManager;

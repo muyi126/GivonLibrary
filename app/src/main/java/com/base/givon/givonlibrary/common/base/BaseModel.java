@@ -1,5 +1,6 @@
 package com.base.givon.givonlibrary.common.base;
 
+
 import com.base.givon.givonlibrary.common.App;
 
 import android.content.Context;
@@ -10,6 +11,7 @@ import javax.inject.Inject;
 import retrofit2.Retrofit;
 import rx.Observable;
 import rx.Observer;
+import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -24,11 +26,16 @@ public abstract class BaseModel<T, R extends BaseModel> {
         service = mRetrofit.create(getServiceClass());
     }
 
+    public void initRetrofit(Retrofit retrofit) {
+        mRetrofit = retrofit;
+        service = mRetrofit.create(getServiceClass());
+    }
+
     //给service赋值
     protected abstract Class<T> getServiceClass();
 
     public T getService() {
-            return service;
+        return service;
     }
 
     public static <T> void setSubscribe(Observable<T> observable, Observer<T> observer) {
@@ -37,5 +44,13 @@ public abstract class BaseModel<T, R extends BaseModel> {
                 .observeOn(AndroidSchedulers.mainThread())//回调到主线程
                 .subscribe(observer);
     }
+
+    public <T> void setSubscribe(Observable<T> o, Subscriber<T> s) {
+        o.subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(s);
+    }
+
 
 }

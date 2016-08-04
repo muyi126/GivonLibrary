@@ -203,4 +203,22 @@ public class TimeUtil {
         }
         return timeStr;
     }
+
+    /**
+     * 时间戳转换格式化的时间
+     *
+     * @param in_dateString   时间戳
+     * @param in_parseString  yyyy-MM-dd HH:mm:ss 格式化字符串
+     * @param out_parseString 输出的 格式化字符串
+     */
+    public static String getTimeString2String(String in_dateString, String in_parseString, String out_parseString) {
+        Date date = TimeUtil.ParseStringtoDate(in_dateString, in_parseString);
+        try {
+            return TimeUtil.dateTime2String(date, out_parseString);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+
+    }
 }

@@ -1,6 +1,7 @@
 package com.base.givon.givonlibrary.common.base;
 
 
+
 import com.base.givon.givonlibrary.common.qualifier.ClickType;
 
 import android.content.Context;
@@ -11,6 +12,7 @@ import butterknife.ButterKnife;
 import io.nlopez.smartadapters.views.BindableFrameLayout;
 
 public abstract class BaseAdapterItemView<T> extends BindableFrameLayout<T> {
+
     public BaseAdapterItemView(Context context) {
         super(context);
     }
@@ -33,7 +35,7 @@ public abstract class BaseAdapterItemView<T> extends BindableFrameLayout<T> {
     }
 
     public void notifyItemAction(@ClickType int actionId, T theItem, View view) {
-        if(this.viewEventListener != null) {
+        if (this.viewEventListener != null) {
             this.viewEventListener.onViewEvent(actionId, theItem, this.position, view);
         }
 
@@ -45,5 +47,10 @@ public abstract class BaseAdapterItemView<T> extends BindableFrameLayout<T> {
 
     public void notifyItemAction(@ClickType int actionId) {
         this.notifyItemAction(actionId, this.item, this);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
     }
 }

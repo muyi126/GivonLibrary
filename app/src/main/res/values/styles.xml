@@ -79,6 +79,31 @@
         <item name="android:ellipsize">end</item>
     </style>
 
+    <style name="order_list_item">
+        <item name="android:layout_height">50dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingLeft">14dip</item>
+        <item name="android:paddingRight">16dip</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">@color/gray_99</item>
+        <item name="android:textSize">@dimen/base_textsize_s</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="order_list_item_desc">
+        <item name="android:layout_height">30dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:textColor">@color/gray_99</item>
+        <item name="android:textSize">@dimen/base_textsize_s</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="giv_db_describeText_color">@color/gray_99</item>
+        <item name="giv_db_describeText_draw_left_padding">5dip</item>
+        <item name="giv_db_describeText_padding_right">8dip</item>
+        <item name="giv_db_describeText_size">@dimen/base_textsize_s</item>
+    </style>
+
+
 
     <style name="selectorDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item> <!-- 边框 -->
