@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <com.cjj.MaterialRefreshLayout
+            android:id="@+id/empty_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:isLoadMore="false"
+            app:overlay="false"
+            app:wave_show="false">
+        <LinearLayout android:layout_width="match_parent"
+                      android:orientation="vertical"
+                      android:clickable="true"
+                      android:gravity="center"
+                      android:layout_height="match_parent">
+            <ImageView android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@mipmap/giv_ic_launcher"
+            />
+            <TextView
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="暂时没有数据"/>
+        </LinearLayout>
+    </com.cjj.MaterialRefreshLayout>
+</LinearLayout>

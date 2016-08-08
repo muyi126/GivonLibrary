@@ -13,7 +13,7 @@
             android:layout_height="match_parent">
         <View style="@style/lineStyle"/>
         <RelativeLayout style="@style/itemLinearStyle">
-            <com.base.givon.givonlibrary.common.widget.TextDescribeBodyView
+            <com.base.givon.demo.common.widget.TextDescribeBodyView
                     android:id="@+id/dt_order_num"
                     style="@style/order_list_item"
                     app:giv_db_describeText="订单号:"
@@ -87,7 +87,7 @@
 
                 </RelativeLayout>
 
-                <com.base.givon.givonlibrary.common.widget.TextDescribeBodyView
+                <com.base.givon.demo.common.widget.TextDescribeBodyView
                         android:id="@+id/dt_use_time"
                         style="@style/order_list_item_desc"
                         app:giv_db_describeText="用车时间:"
@@ -99,7 +99,7 @@
                         android:visibility="visible"
                 />
 
-                <com.base.givon.givonlibrary.common.widget.TextDescribeBodyView
+                <com.base.givon.demo.common.widget.TextDescribeBodyView
                         android:id="@+id/dt_order_time"
                         style="@style/order_list_item_desc"
                         app:giv_db_describeText="发车时间:"

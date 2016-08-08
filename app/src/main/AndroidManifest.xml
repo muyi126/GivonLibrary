@@ -1,14 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.base.givon.givonlibrary">
+          package="com.base.givon.demo">
 
     <application android:allowBackup="true"
                  android:label="@string/app_name"
                  android:icon="@mipmap/ic_launcher"
                  android:supportsRtl="true"
-                 android:name=".common.App"
+                 android:name="com.base.givon.demo.common.App"
                  android:theme="@style/AppTheme">
         <activity
-                android:name=".ui.view.MainActivity"
+                android:name="com.base.givon.demo.ui.view.MainActivity"
                 android:label="@string/app_name"
                 android:launchMode="singleTask">
             <intent-filter>
@@ -17,11 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.view.ActLoginActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.givon.demo.ui.view.ActLoginActivity" android:screenOrientation="portrait"/>
         <!--订单列表-->
-        <activity android:name=".ui.orderList.ActOrderLsitActivity"
+        <activity android:name="com.base.givon.demo.ui.orderList.ActOrderLsitActivity"
                   android:screenOrientation="portrait"
-                  android:parentActivityName=".ui.view.MainActivity"/>
+                  android:parentActivityName="com.base.givon.demo.ui.view.MainActivity"/>
     </application>
 
 </manifest>

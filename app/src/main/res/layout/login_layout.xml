@@ -46,7 +46,7 @@
                         android:text="用户名："
                         android:textColor="@android:color/black"/>
 
-                <com.base.givon.givonlibrary.common.widget.ClearEditText
+                <com.base.givon.demo.common.widget.ClearEditText
                         android:id="@+id/et_user_name"
                         style="@style/editTextStyle"
                         android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                         android:text="密  码："
                         android:textColor="@android:color/black"/>
 
-                <com.base.givon.givonlibrary.common.widget.PassWordEditText
+                <com.base.givon.demo.common.widget.PassWordEditText
                         android:id="@+id/et_psd"
                         style="@style/editTextStyle"
                         android:background="@null"

@@ -6,12 +6,12 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.2'
+        classpath 'com.android.tools.build:gradle:2.2.0-alpha7'
 //        classpath 'com.android.tools.build:gradle:2.2.0-alpha1'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         //方法数据统计 github.com/mutualmobile/gradle-dexinfo-plugin
         classpath 'com.mutualmobile.gradle.plugins:dexinfo:0.1.2'
-
+        classpath 'com.jakewharton:butterknife-gradle-plugin:8.2.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

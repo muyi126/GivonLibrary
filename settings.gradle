@@ -1,10 +1,12 @@
-
-//include ':app'
+include ':base_obj'
+include ':app'
+include ':testdemo'
 //include ':umeng_social_sdk_res_lib'
 //include ':appPhp'
 //include ':retroauth-android'
 //include ':retroauth-core'
-include ':librarymaster'
+//include ':librarymaster'
+
 //include ':umeng'
 //project(':umeng').projectDir = new File(settingsDir, '../GitHubObj/phphub-android-master/umeng_social_sdk_res_lib')
 //include ':Nucleus'
